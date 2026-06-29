@@ -1,4 +1,4 @@
-# Paper 1 Support Repository: Posterior Error Certificates for BaTiO3
+# APECs BaTiO3 Support Repository
 
 This repository supports the manuscript:
 
@@ -9,7 +9,7 @@ Department of Chemistry, University of Victoria
 
 ## Scope
 
-The repository contains the curated data, figure-generation and validation scripts, calibration outputs, and manuscript source needed to reproduce the analyses reported in Paper 1. It is intentionally limited to the posterior-certificate case study and does not include the broader Quantum Ferroelectric Framework development workspace.
+The repository contains the curated data, figure-generation and validation scripts, calibration outputs, and manuscript source needed to reproduce the BaTiO3 APECs case study. It is intentionally limited to the posterior-certificate analysis and is self-contained.
 
 The case study attaches decomposed uncertainty estimates to DFT-computed BaTiO3 properties, assigns Green/Amber/Red quality tiers, and propagates uncertainty through the soft-mode expression for the electro-optic coefficient r33. It also includes a typed band-gap certificate case study and Kyla Younger's independent SCF convergence study for a 40-atom BaTiO3 supercell.
 
@@ -18,8 +18,8 @@ The case study attaches decomposed uncertainty estimates to DFT-computed BaTiO3 
 - 12 posterior certificates extracted from a production PBE/PAW DFPT calculation using Quantum ESPRESSO 7.5.
 - 1 typed band-gap certificate case study showing why Kohn-Sham, proxy, and optical gaps must be kept non-exchangeable unless calibrated reduction maps are supplied.
 - Phase-aware partitioning resolves cubic/tetragonal conflation in prior Born effective charge data.
-- Library-fused r33 = 108 +/- 22 pm/V for tetragonal bulk BaTiO3, within 3% of the bulk experimental value used as a validation check.
-- Library fusion reduces relative uncertainty from 27% for the single-calculation certificate to 20% for the fused estimate.
+- Library-fused isotropic r33 = 108 +/- 25 pm/V for tetragonal bulk BaTiO3; agreement with the bulk reference scale is treated as a calibrated internal consistency check, not an independent validation of the absolute electro-optic response.
+- Library fusion reduces relative uncertainty from 28% for the single-calculation certificate to approximately 24% for the fused estimate, bounded by a model-form-dominated floor of about 22%.
 - Leave-one-out calibration gives RMS z = 1.05 across 15 exchangeable library residuals.
 - The SCF convergence campaign confirms cutoff-dominated total-energy convergence for the 40-atom BaTiO3 supercell.
 
@@ -73,7 +73,7 @@ python scripts/analyze_kyla_scf_convergence.py
 python scripts/band_gap_certificate_case_study.py
 ```
 
-The scripts are self-contained and do not require the unreleased broader QFF package.
+The scripts are self-contained and do not require any external development package.
 
 ## Generated Artifacts
 

@@ -9,21 +9,27 @@
     "experimental_refs_added": [
       "Reynaud et al., Commun. Mater. 6, 176 (2025)",
       "Suceava et al., Adv. Mater. 37, e2507564 (2025)"
-    ]
+    ],
+    "fusion_policy": {
+      "correlation_policy": "floor-aware effective-sample-size fusion",
+      "effective_sample_size_treatment": "methodological scatter may average down; intrinsic_dft and model_form are held fixed as common-mode terms for semilocal library fusion",
+      "optimistic_effective_sample_size_ceiling": 5,
+      "irreducible_floor_pct": 22.1
+    }
   },
-  "n_database_entries": 36,
+  "n_database_entries": 38,
   "counts_by_source_class": {
     "curated_literature": 26,
     "experimental_reference": 4,
     "phonondb": 3,
-    "production_qe": 3
+    "production_qe": 5
   },
   "counts_by_property": {
     "E_gap": 5,
     "P_s": 4,
     "Z_star_Ba": 1,
     "Z_star_O": 2,
-    "Z_star_Ti": 6,
+    "Z_star_Ti": 8,
     "epsilon_inf": 5,
     "lattice_a": 5,
     "lattice_c": 2,
@@ -38,15 +44,20 @@
       }
     },
     "Z_star_Ti": {
+      "iso": {
+        "mean": 6.85,
+        "sigma": 0.2,
+        "n": 1
+      },
       "xx": {
         "mean": 6.435,
         "sigma": 0.14142135623730953,
         "n": 2
       },
       "zz": {
-        "mean": 7.2926829268292686,
-        "sigma": 0.1874085142663273,
-        "n": 3
+        "mean": 6.781818181818182,
+        "sigma": 0.13675269175156554,
+        "n": 4
       }
     },
     "epsilon_inf": {

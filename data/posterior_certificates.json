@@ -4,7 +4,8 @@
     "date_extracted": "2026-03-18",
     "framework": "qff v2.1.3",
     "n_certificates": 13,
-    "schema_note": "All uncertainty components are relative (%). model_form = 0 for directly computed properties. The first 12 certificates are from the production DFPT tensor calculation; E_gap_optical_typed is a promoted typed-observable case study."
+    "schema_note": "All uncertainty components are relative (%). model_form = 0 for directly computed properties. The first 12 certificates are from the production DFPT tensor calculation; E_gap_optical_typed is a promoted typed-observable case study.",
+    "schema_revision_note": "Derived certificates may include descriptor_selection, mode_identification, model_discrepancy, correlation_policy, and effective_sample_size fields when these are required to audit a calibrated or fused quantity."
   },
   "certificates": [
     {
@@ -321,7 +322,25 @@
         "r33_ref_pm_V": 105.0,
         "input_omega_soft": 171.949,
         "phonon_mode_symmetry": "effective soft-mode descriptor used for calibrated bulk r33",
-        "mode_assignment_status": "omega_soft_z tracked separately; symmetry-resolved provenance required for future tensor certificates",
+        "mode_assignment_status": "omega_soft_z tracked separately; symmetry-resolved provenance required for tensor-resolved certificates",
+        "mode_identification": "ambiguous",
+        "descriptor_selection": {
+          "selected_descriptor": "omega_soft",
+          "selected_value_cm1": 171.949,
+          "selection_reason": "calibrated effective soft-mode descriptor for the bulk reference condition",
+          "alternative_descriptor": "omega_soft_z",
+          "alternative_value_cm1": 144.0,
+          "alternative_r33_pm_V": 134.2
+        },
+        "model_discrepancy": {
+          "discrepancy_provenance": "referenced",
+          "reference": "Veithen et al. full ab initio electro-optic tensor mode decomposition",
+          "carried_model_discrepancy_pct": 15.0,
+          "reference_calibration_uncertainty_pct": 9.8,
+          "status": "carried_not_corrected"
+        },
+        "correlation_policy": "single_calculation; fused rows hold intrinsic_dft and model_form fixed and reduce only methodological scatter by effective_sample_size",
+        "effective_sample_size": 1.0,
         "input_Z_star": 6.20139,
         "input_eps_inf": 5.9642
       }
@@ -360,7 +379,25 @@
         "r33_ref_pm_V": 105.0,
         "input_omega_soft": 171.949,
         "phonon_mode_symmetry": "effective soft-mode descriptor used for calibrated bulk r33",
-        "mode_assignment_status": "omega_soft_z tracked separately; symmetry-resolved provenance required for future tensor certificates",
+        "mode_assignment_status": "omega_soft_z tracked separately; symmetry-resolved provenance required for tensor-resolved certificates",
+        "mode_identification": "ambiguous",
+        "descriptor_selection": {
+          "selected_descriptor": "omega_soft",
+          "selected_value_cm1": 171.949,
+          "selection_reason": "calibrated effective soft-mode descriptor for the bulk reference condition",
+          "alternative_descriptor": "omega_soft_z",
+          "alternative_value_cm1": 144.0,
+          "alternative_r33_pm_V": null
+        },
+        "model_discrepancy": {
+          "discrepancy_provenance": "referenced",
+          "reference": "Veithen et al. full ab initio electro-optic tensor mode decomposition",
+          "carried_model_discrepancy_pct": 15.0,
+          "reference_calibration_uncertainty_pct": 9.8,
+          "status": "carried_not_corrected"
+        },
+        "correlation_policy": "single_calculation; fused rows hold intrinsic_dft and model_form fixed and reduce only methodological scatter by effective_sample_size",
+        "effective_sample_size": 1.0,
         "input_Z_star": 6.8472,
         "input_eps_inf": 6.3159
       }

@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Self-contained extraction case study for the Paper 1 support repository.
+"""Self-contained extraction case study for the APECs support repository.
 
 The manuscript describes a retrospective extraction workflow that merges
 curated DFPT literature, public database-style records, a production Quantum
 ESPRESSO calculation, and experimental calibration/check targets. This script
-does not require the broader QFF package. It reads the public
+does not require any external development package. It reads the public
 ``data/bto_literature_library.json`` file and emits a compact audit summary of
 the source classes, weighted tetragonal averages, phase/tensor partitions, and
 experimental check targets used in the paper.

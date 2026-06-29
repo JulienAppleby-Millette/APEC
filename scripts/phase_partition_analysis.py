@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Reproduce the phase/tensor partitioning analysis for Paper 1.
+"""Reproduce the phase/tensor partitioning analysis for the APECs case study.
 
 The script evaluates the soft-mode model for the five input conventions shown
-in the main text. It is intentionally self-contained so that the public support
-repository can run without the broader QFF package.
+in the main text. It is intentionally self-contained so that the support
+repository can run without any external development package.
 """
 
 from __future__ import annotations

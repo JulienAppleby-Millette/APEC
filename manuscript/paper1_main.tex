@@ -40,10 +40,9 @@
 \date{\today}
 
 \begin{abstract}
-Density functional theory has become an indispensable tool for predicting functional materials properties, yet computational predictions are rarely accompanied by standardized uncertainty estimates. This limitation is particularly important for derived materials properties, where nonlinear relationships can amplify uncertainties in the underlying electronic structure calculation. Here we introduce A Posteriori Error Certificates (APECs), a method that attaches quantitative uncertainty estimates,  provenance metadata and quality tiers to DFT calculations. Total uncertainty is decomposed into convergence, methodological, intrinsic DFT and model-form contributions. The framework propagates these uncertainties through derived quantities, enabling statistically consistent fusion of heterogeneous computational data. We demonstrate the approach for a challenging problem, the electro-optic response of 
-tetragonal BaTiO$_3$, where the inverse-square dependence of the Pockels coefficient on the soft-mode frequency amplifies modest uncertainties in phonon calculations. Twelve certificates are extracted from a production DFPT 
+Density functional theory has become an indispensable tool for predicting functional materials properties, yet computational predictions are rarely accompanied by standardized uncertainty estimates. This limitation is particularly important for derived materials properties, where nonlinear relationships can amplify uncertainties in the underlying electronic structure calculation. Here we introduce A Posteriori Error Certificates (APECs), a method that attaches quantitative uncertainty estimates,  provenance metadata and quality tiers to DFT calculations. Total uncertainty is decomposed into convergence, methodological, intrinsic DFT and model-form contributions. The framework propagates these uncertainties through derived quantities, enabling statistically consistent fusion of heterogeneous computational data. We demonstrate the approach for the electro-optic response of tetragonal BaTiO$_3$. Although full Pockels tensors can be computed directly from first-principles response theory for ideal bulk crystals, the device-relevant regimes of interest involve strain, domains, interfaces, defects, temperature, and phase competition, where repeated full-tensor calculations on large low-symmetry configurations become impractical. We therefore treat bulk BaTiO$_3$ as a controlled case for certifying a calibrated soft-mode descriptor whose inverse-square dependence amplifies modest phonon uncertainties into large electro-optic uncertainty. Twelve certificates are extracted from a production DFPT
 calculation and combined  with cross-functional literature data. Phase-aware 
-partitioning  resolves inconsistencies arising from mixed crystallographic phases and tensor conventions, yielding a phase-consistent calibrated electro-optic coefficient that recovers the bulk reference scale. Because the soft-mode expression is anchored by that reference value, this comparison is an internal consistency check rather than an independent validation of the absolute electro-optic scale. Library fusion reduces the uncertainty from 28\% for a single calculation to approximately 24\%, bounded by an irreducible DFT/model-form floor of about 22\%. Broadly, APECs provide a methodology for uncertainty-aware computational materials design, enabling calculated properties to be compared, combined, propagated through multiscale workflows, and reused reliably. 
+partitioning  resolves inconsistencies arising from mixed crystallographic phases and tensor conventions, yielding a phase-consistent calibrated electro-optic coefficient. Because the soft-mode expression is anchored by the bulk reference value, recovery of that scale is an internal consistency check rather than an independent validation of the absolute electro-optic response. The reported $r_{33}$ uncertainty is conditional on the selected soft-mode descriptor, tensor convention, descriptor values inserted into the calibrated expression, and referenced full-tensor model-discrepancy term. Under those choices, library fusion reduces the uncertainty from 28\% for a single calculation to approximately 24\%, bounded by a model-form-dominated floor of about 22\%. Broadly, APECs provide a methodology for uncertainty-aware computational materials design, enabling calculated properties to be compared, combined, propagated through multistage workflows, and reused reliably.
 \end{abstract}
 
 \maketitle
@@ -60,6 +59,23 @@ platforms \cite{Abel2019,Eltes2020,Lines2001}. Predicting the
 electro-optic response from DFT is therefore a problem of direct 
 technological significance. It is also a problem that exposes a fundamental 
 weakness in how computational materials science handles uncertainty: standard methodological errors in DFT are often amplified when calculating derived properties.
+
+The first-principles electro-optic tensor is not, in principle, inaccessible.
+For ideal bulk unit cells, density-functional perturbation theory and related
+finite-field approaches can compute electronic, ionic, and piezoelectric
+contributions to the Pockels response directly
+\cite{Veithen2005,Veithen2004_PRL}. The scientific difficulty addressed here
+is different: the regimes that make BaTiO$_3$ technologically compelling are
+not single perfect bulk crystals, but strained, domain-textured,
+defect-bearing, temperature-dependent, and heterostructured environments. In
+those settings, a direct full-tensor calculation at every relevant
+configuration would require repeated response calculations on large,
+low-symmetry cells or ensembles, making it poorly suited as the primitive
+object for uncertainty-aware aggregation and propagation. A calibrated
+soft-mode description is therefore useful not because the full tensor is
+unknowable, but because it provides a compact, physically interpretable
+descriptor whose assumptions, calibration anchor, and uncertainty
+amplification can be certified explicitly.
 
 The Pockels coefficient $r_{33}$ of BaTiO$_3$ depends on the soft transverse 
 optical phonon frequency $\omega_{\mathrm{soft}}$ through an inverse-square 
@@ -116,7 +132,10 @@ educe the cost of numerical validation but yield pass/fail criteria rather than 
 Here, we introduce a methodology that treats uncertainty as structured metadata attached to computational materials data. Rather than being tied to a particular exchange-correlation functional, workflow or dataset, the resulting A Posteriori Error Certificates (APECs) can be generated retrospectively for completed calculations and incorporated into existing databases. Each computed quantity of interest is provided with an uncertainty certificate. The certificate decomposes uncertainty into convergence, methodological, intrinsic DFT and model-form contributions, records computational provenance, and assigns a quality tier. The approach also provides a means of propagating these uncertainties through derived quantities and combining results across heterogeneous sources in a consistent manner. 
 %that attaches quantitative error estimates as metadata to DFT-generated data and compounded properties. Each computed quantity is associated with an uncertainty estimate, decomposed into contributions such as convergence, methodological choices and intrinsic DFT limitations. The uncertainties are reported together with the computed values or can be added to existing data, and are then classified into discrete quality tiers, enabling comparisons between distinct calculations. Moreover, the approach (discussed in the following pages as the Posterior Error Certificates approach) provides a  means to propagate uncertainties through derived quantities and combine results from diverse sources in a consistent manner.    %\emph{posterior error certificates}---standardized metadata structures that attach decomposed uncertainty estimates to DFT-computed  properties. The framework decomposes uncertainty into convergence error ($\sigma_\conv$), methodological spread ($\sigma_\meth$), intrinsic DFT limitations ($\sigma_{\mathrm{DFT}}$), and---for derived properties that depend on phenomenological models---model-form error ($\sigma_{\mathrm{model}}$). It assigns discrete quality tiers (red/amber/green) that enable filtering and trust calibration across heterogeneous datasets, and provides a propagation calculus that tracks uncertainty through derived quantities and multi-stage computational workflows. Cross-method normalization is achieved through inverse-variance weighting, bias correction, and hierarchical Bayesian modeling.
 
-We apply the methodology to the electro-optic response of BaTiO$_3$, a system in which the soft-mode amplification of errors, propagated into the evaluation of the electro-optic tensor, makes  uncertainty 
+We apply the methodology to the electro-optic response of BaTiO$_3$, using the
+bulk soft-mode response as a tractable proxy for a full tensor quantity that
+becomes costly to evaluate repeatedly in large or low-symmetry configurations.
+In this system, soft-mode amplification of errors makes uncertainty
 quantification essential. Using a reference DFPT calculation, we extract twelve 
  certificates spanning structural, charge-response, dielectric, 
 phonon, and derived electro-optic properties. 
@@ -137,7 +156,7 @@ to both propagated uncertainty and model-form error. The BaTiO$_3$ case study se
 
 %\subsection{Soft Mode Amplification in BaTiO$_3$}
 
-The APECs method assigns uncertainty certificates to individual DFT-calculated and derived quantities, and enables their combination across heterogeneous data sources. We demonstrate the workflow using a challenging application: the Pockels tensor in BaTiO$_3$. We build the certificates from calculated, literature and database data, quantifying the dominant uncertainty contributions. Specifically, in the following pages we generate certificates for a production DFPT calculation and examine how library fusion and provenance-aware partitioning affect the resulting electro-optic effect. 
+The APECs method assigns uncertainty certificates to individual DFT-calculated and derived quantities, and enables their combination across heterogeneous data sources. We demonstrate the workflow using the calibrated soft-mode electro-optic response of BaTiO$_3$, where a compact descriptor stands in for a full tensor calculation within a clearly stated bulk reference scope. We build the certificates from calculated, literature and database data, quantifying the dominant uncertainty contributions. Specifically, in the following pages we generate certificates for a production DFPT calculation and examine how library fusion and provenance-aware partitioning affect the resulting electro-optic effect.
 
 In BaTiO$_3$, a transverse optical phonon mode softens as temperature approaches the Curie point $T_C \approx 400$~K \cite{Lines2001,Cochran1960,Zhong1994_BTO,Zhong1995}. The change in the refractive index of the material with an applied electric field is determined by the Pockels coefficient $r_{33}$ which depends on this soft-mode frequency as discussed in Equation \ref{eq:soft_mode}. More specifically \cite{Veithen2005},
 %To calculate the electro-optic coefficient $r_{33}$ we use the calibrated soft-mode expression \cite{Veithen2005}
@@ -359,7 +378,7 @@ in published calculations.
 Supplemental Material Table~S2 compiles published soft-mode 
 frequencies for tetragonal BaTiO$_3$ across LDA, PBE and PBEsol calculations.
 The cross-functional spread in $\omega_{\mathrm{soft}}$ itself is relatively modest 
-($\sigma \approx 5$~cm$^{-1}$, or $\sim$3\%). However, the certificate assigns an 8\% methodological component to the soft-mode input to cover recipe-level ambiguity in mode extraction and response-property setup. Born effective charges show 
+($\sigma \approx 5$~cm$^{-1}$, or $\sim$3\%). The production certificate treats this measured spread together with a conservative mode-extraction and response-setup allowance as an 8\% soft-mode methodological prior; the impact of this allowance on the final $r_{33}$ certificate is audited below. Born effective charges show
 larger functional sensitivity: published $Z^*_{\mathrm{Ti}}$ values range 
 from 7.0 to 7.5~$e$ (a spread of $\sim$4\%) across the available DFPT studies 
  \cite{Ghosez1998_BEC,Zhong1994_BTO,Veithen2005,Dieguez2005}. When propagated onto the soft-mode expression for r$_{33}$ using the certificate line items, these variations produce a methodological uncertainty of 17.8\%, substantially larger than the corresponding numerical convergence contribution. This is consistent with the full uncertainty decomposition shown in 
@@ -445,7 +464,7 @@ and yields consistent fused estimates.
 and derived $r_{33}$. ``Unpartitioned'' averages all entries regardless of 
 phase; ``Phase-filtered'' averages within consistent (phase, component) 
 subsets. The $r_{33}$ uncertainties include propagated input uncertainties 
-and 17.9\% model-form uncertainty from the soft-mode approximation. For fused rows, the methodological component is reduced by the effective number of exchangeable entries, while the intrinsic-DFT and model-form components are held fixed because the library is dominated by shared semilocal-DFT physics. The resulting uncertainty cannot fall below the $\sim$22\% floor set by the convergence, intrinsic-DFT, and model-form terms.}
+and 17.9\% model-form uncertainty from the soft-mode approximation. For fused rows, the methodological component is reduced by the effective number of exchangeable entries, while the intrinsic-DFT and model-form components are held fixed because the library is dominated by shared semilocal-DFT physics. Within the present soft-mode/semilocal-DFT model, the resulting uncertainty cannot fall below the $\sim$22\% floor set by the convergence, intrinsic-DFT, and model-form terms.}
 \label{tab:library_update}
 \begin{tabular}{lccccc}
 \toprule
@@ -505,7 +524,26 @@ The reduction in uncertainty upon fusion from 28\% to approximately 24\%  illust
 certificate framework can be leveraged to not merely \emph{track} uncertainty but actively 
 \emph{reduce} it through principled data combination, while making clear which uncertainty components cannot be averaged away.
 
-A limited leave-one-out calibration test of the phase/component-consistent subsets of the BaTiO$_3$ literature library is presented in Supplemental Material Section~S3.7. Across 15 residuals in four computational groups, the pooled residuals give mean $z=-0.02$, RMS $z=1.05$, reduced $\chi^2=1.10$, 73\% coverage for $|z|<1$, and 93\% coverage for $|z|<1.96$. This is an Amber-level smoke test for gross over- or under-confidence in the BaTiO$_3$ input library, not a broad calibration benchmark across materials or a direct empirical validation of the derived Red-tier $r_{33}$ certificate.
+Two sensitivities are useful for interpreting the fused value. First, the
+8\% methodological prior assigned to the soft-mode input is larger than the
+measured cross-functional spread of the compiled tetragonal frequencies
+($\sim$3\%) because it includes a conservative allowance for mode extraction
+and response-setup ambiguity. If the soft-mode prior were set to 3\% or 5\%,
+the single-calculation $r_{33}$ uncertainty would be 24.2\% or 25.5\%,
+respectively, rather than 28.4\%. Second, the fused uncertainty depends on the
+effective number of exchangeable sources. Holding the convergence,
+intrinsic-DFT, and model-form terms fixed, $N_{\mathrm{eff}}=2$ gives
+$\sigma_{\mathrm{total}}\approx25.4\%$, while $N_{\mathrm{eff}}=5$ gives
+$\sigma_{\mathrm{total}}\approx23.5\%$. Thus the rounded ``$\sim$24\%''
+value should be read as a high-information, floor-limited case rather than as
+a universal consequence of adding more entries. A separate descriptor
+sensitivity is discussed in the Supplemental Material: substituting the raw
+$z$-labeled 144~cm$^{-1}$ mode into the $zz$ soft-mode expression would shift
+the central estimate from 94 to approximately 134~pm/V. This alternative is
+not adopted in the reported certificate, but it illustrates why mode
+provenance is retained explicitly.
+
+A limited leave-one-out calibration test of the phase/component-consistent subsets of the BaTiO$_3$ literature library is presented in Supplemental Material Section~S3.7. Across 15 residuals in four computational groups, the pooled residuals give mean $z=-0.02$, RMS $z=1.05$, reduced $\chi^2=1.10$, 73\% coverage for $|z|<1$, and 93\% coverage for $|z|<1.96$. The expected sampling spread of the RMS statistic is approximately $1/\sqrt{2n}=0.18$, so these values rule out gross miscalibration but do not distinguish fine calibration differences. This is an Amber-level smoke test for gross over- or under-confidence in the BaTiO$_3$ input library, not a broad calibration benchmark across materials or a direct empirical validation of the derived Red-tier $r_{33}$ certificate.
 
 
 
@@ -573,6 +611,17 @@ and assumes the cancellation pattern generalizes across materials. A more rigoro
 Equation~\ref{eq:linear_prop} provide the formal mechanism for incorporating 
 such data once available.
 
+There is, however, an opposing anti-conservative direction. The library used
+for the fused electro-optic posterior is dominated by semilocal functionals, so
+cross-functional spread within that family may understate discrepancies that
+would appear when comparing against hybrid, meta-GGA, quasiparticle, or
+experimental reference data. The band-gap case study in the Supplemental
+Material provides the clearest example of this broader functional-family
+spread. The net sign of conservatism in the $r_{33}$ certificate is therefore
+not established: the independence assumption likely overestimates one
+methodological component, while the semilocal exchangeability class may
+underestimate broader model discrepancy.
+
 The framework quantifies only sources of uncertainty explicitly represented in the certificate. Unmodeled 
 effects such as code errors, incorrect inputs, or missing physics are not 
 captured by the four-component decomposition. However, deviations between 
@@ -593,21 +642,19 @@ models for estimating $\sigma_\conv$ from single calculations introduce their
 own uncertainty. In principle, the framework is recursive: the surrogates 
 themselves are candidates for certification, and their fitting error should 
 propagate as a second-order contribution into every certificate they generate. 
-This meta-uncertainty is currently neglected but should be quantified as the 
-surrogate models mature. The trade-off between certification fidelity and 
-computational budget is application-dependent.
+This meta-uncertainty is not included in the present certificate and therefore
+marks a boundary on the reported uncertainty budget. The trade-off between
+certification fidelity and computational budget is application-dependent.
 
 \subsection{Scope of the Current Certificate}
 
-The present certificates describe bulk tetragonal BaTiO$_3$ and quantify uncertainty within the physical and computational assumptions of the underlying model. Important sources of electro-optic enhancement in experimental devices, including epitaxial strain, domain engineering, finite-temperature effects,  and phase stability, are not explicitly represented in the current form. 
+The present certificates describe bulk tetragonal BaTiO$_3$ and quantify uncertainty within the physical and computational assumptions of a calibrated soft-mode model. Important sources of electro-optic enhancement in devices, including epitaxial strain, domain engineering, finite-temperature effects, and phase stability, are outside the exchangeability class of the present certificate. Full \emph{ab initio} electro-optic tensors including all ionic, electronic, piezoelectric, strain, and domain contributions are not represented here; the soft-mode surrogate is used precisely because it makes the bulk uncertainty chain traceable at tractable cost. The binding limitation in the present certificate is model form and descriptor selection rather than numerical convergence.
 
-Much current interest in BaTiO$_3$ has focused on strain-induced enhancement of the electro-optic coefficient for a variety of applications. Among these studies, are thin-film measurements.  Reynaud et al.\ \cite{Reynaud2025} report an effective Pockels coefficient exceeding 550~pm/V in 150~nm epitaxial films on Si. This value is a factor of $\sim$$5\times$ above the bulk value, due to domain-structure optimizations not captured in bulk calculations. Suceava et al.\ \cite{Suceava2025} achieve $r_{33} = 2516 \pm 100$~pm/V at 5~K in strain-stabilized metastable films, reflecting a monoclinic phase where $\omega_{\mathrm{soft}}$ is further suppressed by epitaxial strain. These measurements highlight physical mechanisms that are not included in the present bulk certificate, including domain structure, strain coupling, temperature dependence and phase stability. Extending the certification approach to incorporate these additional sources of variability will allow their contributions and associated uncertainties to be quantified, and are the natural next step in the APECs framework.
+Thin-film measurements illustrate the scale of the excluded physics. Reynaud et al.\ \cite{Reynaud2025} report an effective Pockels coefficient exceeding 550~pm/V in 150~nm epitaxial films on Si, roughly $\sim$$5\times$ above the bulk value, and Suceava et al.\ \cite{Suceava2025} report $r_{33} = 2516 \pm 100$~pm/V at 5~K in strain-stabilized metastable films. These values are not contradictions of the bulk certificate: they belong to different physical scopes in which domain structure, strain coupling, temperature dependence, and phase stability are active variables. The $\sim$22\% floor reported here is therefore irreducible only within the carried-discrepancy, semilocal-DFT soft-mode approximation used for the bulk reference condition.
 
 \subsection{Extension and Adoption}
 
-The certified {\em bulk} $r_{33}$ is not the end of the uncertainty chain. For device design, performance metrics such as the effective electro-optic coefficient $r_{\mathrm{eff}}$ and the half-wave voltage--length product $V_\pi L = \frac{\lambda d}{2 n^3 r_{\mathrm{eff}} \Gamma}$ (where $\lambda$ is the wavelength, $d$ is the electrode gap, $n$ is the refractive index, and $\Gamma$ is the optical--RF field overlap \cite{Wooten2000,Reed2010,Wang2018_LN_thin}) are obtained through a sequence of additional modeling steps that introduce their own uncertainty sources. Table \ref{tab:propagation} illustrates this concept using a representative propagation chain from the certified bulk BaTiO$3$ response ($r_{33}=108 \pm 25$ pm/V) to derived effective material parameters and ultimately device-level metrics. Library fusion improves the starting point for this propagation by reducing the uncertainty in the bulk electro-optic response from 28\% for a single calculation to approximately 24\% for the fused library value, approaching but not crossing the $\sim$22\% floor imposed by convergence, intrinsic-DFT and model-form uncertainty. The table illustrates two important points: (i) Downstream calculations benefit directly from improvements in the underlying materials data, and (ii) Each additional stage from bulk material properties to device-level metrics contributes new uncertainty that must be quantified and propagated alongside the underlying DFT uncertainty. Crucially, the chain structure makes the dominant uncertainty source visible at each stage. In the present example, uncertainty in the DFT-derived electro-optic response remains one of the largest contributors even at the device level, but future implementations could incorporate additional uncertainties arising from domain structure, strain state, fabrication tolerances, optical mode confinement, and operating temperature within the same framework.
-
-%Table~\ref{tab:propagation} shows both the single-calculation and library-fused $r_{33}$ to make the fusion benefit visible within the chain. The current propagation chain does not capture optical propagation loss, which Kim and Demkov \cite{Kim2025_loss} have shown to be dominated by non-absorptive scattering at ferroelectric domain walls in BTO waveguides. This is a known unmodeled effect: the certificate framework as presented tracks uncertainty in $r_{\mathrm{eff}}$ and $V_\pi L$ but not in insertion loss, which enters the device figure of merit independently. Extending the certificate schema to include loss parameters---potentially calibrated against low-loss demonstrations such as the high-$Q$ ring resonators of Raju et al.\ \cite{Raju2025}---is a natural direction for future work. The DFT-derived $r_{33}$ remains the dominant uncertainty source throughout the modulation-efficiency chain.
+The certified {\em bulk} $r_{33}$ is one stage in a broader uncertainty chain. For device design, performance metrics such as the effective electro-optic coefficient $r_{\mathrm{eff}}$ and the half-wave voltage--length product $V_\pi L = \frac{\lambda d}{2 n^3 r_{\mathrm{eff}} \Gamma}$ (where $\lambda$ is the wavelength, $d$ is the electrode gap, $n$ is the refractive index, and $\Gamma$ is the optical--RF field overlap \cite{Wooten2000,Reed2010,Wang2018_LN_thin}) are obtained through additional modeling stages that introduce their own uncertainty sources. Table \ref{tab:propagation} illustrates this capability using a representative propagation chain from the certified bulk BaTiO$3$ response ($r_{33}=108 \pm 25$ pm/V) to derived effective material parameters and device-level metrics. Library fusion improves the starting point for this propagation by reducing the uncertainty in the bulk electro-optic response from 28\% for a single calculation to approximately 24\% for the fused library value, approaching but not crossing the $\sim$22\% floor imposed by convergence, intrinsic-DFT and model-form uncertainty. The table is a schema demonstration: the Effective and Device rows show where additional certified stages enter, while the present paper certifies the DFT and bulk-property stages.
 
 \begin{table*}
 \centering
@@ -622,7 +669,7 @@ $\downarrow$ ($\times 2$ amplification) & & & \\
 Property (single calc) & $r_{33}$ ($zz$) & 94 pm/V & 28\% \\
 Property (library-fused) & $r_{33}$ ($zz$) & 94 pm/V & 24\% \\
 \midrule
-\multicolumn{4}{l}{\textit{Downstream stages (to be certified):}} \\
+\multicolumn{4}{l}{\textit{Schematic downstream stages:}} \\
 $\downarrow$ (microstructure averaging) & & & \\
 Effective & $r_{\mathrm{eff}}$ & $\sim$40 pm/V & $\sim$26\% \\
 $\downarrow$ (device model) & & & \\
@@ -631,8 +678,7 @@ Device & $V_\pi L$ & $\sim$2.5 V$\cdot$cm & $\sim$27\% \\
 \end{tabular}
 \end{table*}
 
-The structured nature of the certificate metadata also creates opportunities beyond uncertainty quantification for individual calculations. Recent work in materials informatics has highlighted the importance of uncertainty-aware machine learning, particularly when training models on heterogeneous datasets assembled from multiple computational and experimental sources \cite{Kendall2017,Nix1994,Guo2017_calibration,Kuleshov2018,Tran2018_active}. The uncertainty estimates associated with individual certificates provide a natural mechanism for incorporating data quality into model development, whether through inverse-variance weighting, calibration analysis, or heteroscedastic learning approaches that explicitly distinguish between data uncertainty and model uncertainty. More broadly, certificate metadata could enable uncertainty-aware aggregation and filtering of large materials datasets. Evaluating these ideas in graph neural network and foundation-model workflows trained on heterogeneous materials databases represents an interesting direction for future work \cite{Schutt2018_SchNet,Chen2022_M3GNet,Batatia2022_MACE}.
-%Community adoption requires action at several levels. At the code level, major DFT packages (VASP, QE, FHI-aims) could add optional certificate output with minimal changes---primarily metadata collection and JSON serialization. At the database level, Materials Project, AFLOW, and JARVIS APIs could extend their schemas to accept and serve certificate fields, enabling filtering by quality tier. Systematic benchmark campaigns across material classes are needed to parameterize the surrogate convergence models (Supplemental Material, Table~S3). At the machine learning level, the certificate schema exposes three interface points: inverse-variance loss weighting ($\mathcal{L} \propto \sum_i (y_i - \hat{y}_i)^2 / \sigma_i^2$) to focus model capacity on high-quality data, heteroscedastic architectures that separate irreducible label noise from learned epistemic uncertainty \cite{Kendall2017,Nix1994}, and calibration validation using certificates as ground-truth uncertainty targets \cite{Guo2017_calibration,Kuleshov2018,Tran2018_active}. These are interface specifications; systematic evaluation on graph neural networks \cite{Schutt2018_SchNet,Chen2022_M3GNet,Batatia2022_MACE} trained on heterogeneous database aggregates is the subject of ongoing work. Finally, a community workshop or working group could establish consensus on tier thresholds, schema versions, and best practices for certificate-aware analysis.
+The structured nature of the certificate metadata also creates opportunities beyond uncertainty quantification for individual calculations. Recent work in materials informatics has highlighted the importance of uncertainty-aware machine learning, particularly when training models on heterogeneous datasets assembled from multiple computational and experimental sources \cite{Kendall2017,Nix1994,Guo2017_calibration,Kuleshov2018,Tran2018_active}. The uncertainty estimates associated with individual certificates provide a natural mechanism for incorporating data quality into model development, whether through inverse-variance weighting, calibration analysis, or heteroscedastic learning approaches that explicitly distinguish between data uncertainty and model uncertainty. More broadly, certificate metadata provides an interface for uncertainty-aware aggregation and filtering of large materials datasets; performance claims for particular learning architectures require separate benchmark studies \cite{Schutt2018_SchNet,Chen2022_M3GNet,Batatia2022_MACE}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
@@ -646,7 +692,7 @@ The BaTiO$_3$ application of the APECs framework   demonstrates that
 soft-mode amplification pushes the derived Pockels coefficient to Red 
 tier ($\sigma_{\mathrm{total}} = 28.4\%$) even when the underlying DFT-calculated 
 properties are Green or Amber. Phase-aware partitioning of literature 
-data resolved inconsistencies arising from mixing cubic and tetragonal data and reduced the uncertainty in the library-fused electro-optic response to approximately 24\%, bounded by a $\sim$22\% irreducible floor in the present semilocal-DFT soft-mode model. Although demonstrated here for the soft-mode electro-optic response of BaTiO$_3$, the method is independent of the underlying electronic-structure method or property. More broadly, APECs provide a  basis for uncertainty-aware computational materials science, allowing computed properties to be compared, combined, and used systematically in databases, multiscale models and future data-driven materials design.
+data resolved inconsistencies arising from mixing cubic and tetragonal data and reduced the uncertainty in the library-fused electro-optic response to approximately 24\%, bounded by a $\sim$22\% floor within the present carried-discrepancy semilocal-DFT soft-mode model. Although demonstrated here for the soft-mode electro-optic response of BaTiO$_3$, the method is independent of the underlying electronic-structure method or property. More broadly, APECs provide a  basis for uncertainty-aware computational materials science, allowing computed properties to be compared, combined, and used systematically in databases, multistage models and data-driven materials design.
 
 %The thin-film  discrepancy ($5$--$22\times$ above bulk) quantifies the modeling gap that microstructure and strain stages of the propagation chain must close.
 
@@ -711,7 +757,6 @@ For properties computed directly from DFT,
 $\sigma_{\mathrm{model}} = 0$. For derived properties (e.g., the soft-mode expression for $r_{33}$), 
 $\sigma_{\mathrm{model}}$ captures the approximation error of that model 
 and is nonzero. Implementation details are provided in Supplemental Material Sections~S2.2--S2.3 and the support repository documentation. 
-%The full JSON schema specification and a reference implementation of the data aggregation pipeline are provided in the Supplemental  Material~\footnote{See Supplemental Material at [URL will be inserted by  publisher] for extended formalism (hierarchical Bayesian fusion, Monte Carlo propagation, convergence estimators), the JSON certificate schema, supporting data tables (functional bias statistics, cross-functional soft-mode comparison, convergence model parameters, heuristic estimates), the complete 31-entry BaTiO$_3$ literature library with phase metadata, certificate data for all 12 properties, and the extraction case study walkthrough.} and in the support repository documentation.
 
 \subsection{Error Model and Uncertainty Decomposition}
 \label{sec:decomposition}
@@ -750,7 +795,7 @@ This confirms that the independence  assumption is conservative for $r_{33}$, si
 $r_{33}$. Other quantities may instead show reinforcing correlations. When sufficient material-specific data is available, covariance terms can be included specifically.
 %observable-specific---$Z^*$ and $\varepsilon^\infty$ happen to enter $r_{33}$ with opposite signs, but other derived quantities may see reinforcing rather than canceling correlations. A general-purpose framework should default to the conservative bound and allow tightening when material-specific covariance data is available.
 Alternatively, a more reliable estimate of the covariance could be obtained by systematically varying numerical parameters while tracking the resulting changes in 
-$\omega_{\mathrm{soft}}$, $Z^*$, and $\varepsilon^\infty$  (See Section~\ref{sec:limitations}).
+$\omega_{\mathrm{soft}}$, $Z^*$, and $\varepsilon^\infty$  (see Supplemental Material Section~S1.1).
 
 \subsubsection{Convergence Uncertainty ($\sigma_\conv$)}
 
@@ -830,6 +875,20 @@ properties, $\sigma_{\mathrm{model}}$ may include both the model
 approximation error and statistical uncertainty in the calibration 
 parameters that anchor the model to reference data.
 
+More generally, if a surrogate model $g(\theta)$ is used in place of a
+higher-fidelity reference calculation or measurement $F$, the model
+discrepancy is
+\begin{equation}
+    \delta = F - g(\theta).
+\end{equation}
+The certificate records whether this discrepancy is \emph{referenced}
+from the literature or \emph{computed} within the same workflow. In the
+present BaTiO$_3$ certificate, the discrepancy is referenced: the soft-mode
+model-form term is carried as an uncertainty contribution rather than used
+to correct the central value. If an independent discrepancy estimate is
+available for the same exchangeability class, the same schema can represent
+that information as a correction with a residual calibration uncertainty.
+
 The magnitude of $\sigma_{\mathrm{model}}$ is specific to the model and 
 the material class. Veithen et al.\ computed full \emph{ab initio} 
 electro-optic tensors, including electronic, all ionic modes, and 
@@ -843,7 +902,7 @@ approximation qualitatively inadequate. Paoletta and
 Demkov \cite{Paoletta2021} independently confirmed the mode decomposition 
 for rhombohedral BaTiO$_3$, identifying the same dominant soft mode. 
 We adopt $\sigma_{\mathrm{model}} = 15\%$ for BaTiO$_3$ as the nominal value
-within this material-specific range. For materials where the soft-mode 
+within this referenced, material-specific range. For materials where the soft-mode
 fraction is unknown, a substantially larger $\sigma_{\mathrm{model}}$ 
 ($\geq 50\%$) is prudent until the importance of the soft mode is established.
 
@@ -971,7 +1030,7 @@ an undiagnosed source of disagreement between calculations.
 
 {\bf Beyond Linear Propagation.}
 For nonlinear relationships $f$ or large uncertainties where the linear approximation 
-breaks down, Monte Carlo sampling can be used instead of linear propagation. Similarly, in multi-stage computational workflows uncertainty can be propagated sequentially through the calculations steps. Because the present BaTiO$_3$ calculation remains in the linear uncertainty regime, linear propagation is used throughout the Results section. Details of the possible implementation of Monte Carlo propagation and chain propagation are provided in Supplemental Material Sections~S1.2--S1.3. 
+breaks down, Monte Carlo sampling can be used instead of linear propagation. Similarly, in multi-stage computational workflows uncertainty can be propagated sequentially through the calculation steps. This distinction matters near structural instabilities: as $\omega_{\mathrm{soft}}\to 0$, both $r_{33}$ and its relative uncertainty become ill-conditioned, and relative Green/Amber/Red tiering ceases to be a sufficient summary. Because the present BaTiO$_3$ certificate remains in the linear uncertainty regime, linear propagation is used throughout the Results section. Monte Carlo propagation and chain propagation are described as framework capabilities in Supplemental Material Sections~S1.3--S1.4.
 
 %can be workflows
 %provides exact uncertainty propagation 
@@ -1008,8 +1067,8 @@ Similarly, the residual uncertainty associated with $k$-point sampling follows \
 \end{equation}
 
 Fitted parameters for the oxide materials class are provided in 
-Supplemental Material Table~S3; these are preliminary and will be 
-refined as additional benchmark data become available.
+Supplemental Material Table~S3. These preliminary values define the scope of
+the present certificate rather than universal convergence constants.
 
 {\bf Residual-Based Indicators.}
 Several quantities available from single calculations can provide qualitative indicators of convergence 
@@ -1027,17 +1086,6 @@ quality and can serve as diagnostic indicators. Slow SCF convergence, unusually 
 %\end{equation}
 %provides a measure of $k$-point adequacy, since anisotropic sampling breaks the expected cubic symmetry. Non-zero forces at equilibrium positions similarly indicate incomplete relaxation or basis set incompleteness.
 
-%The framework as developed above supports the full range of uncertainty 
-%estimation, fusion, and propagation capabilities---from hierarchical 
-%Bayesian fusion of biased sources through multi-stage process chains. The 
-%case study that follows exercises the inverse-variance weighting, linear 
-%error propagation, and tier assignment components.
-%The hierarchical Bayesian 
-%fusion and Monte Carlo propagation capabilities are developed in full in the 
-%Supplemental Material (Sections~S1.1--S1.3) and deployed on production 
-%datasets in subsequent work.
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgments}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1053,8 +1101,8 @@ Canada and the University of Victoria. I.P. acknowledges support from NSERC and 
 \section*{Data and Code Availability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The Paper 1 support repository is available at
-\url{https://github.com/Somebody-Probably/QFF_project}. It contains the
+The APECs BaTiO$_3$ support repository is available at
+\url{https://github.com/JulienAppleby-Millette/APEC}. It contains the
 machine-readable posterior certificates, curated BaTiO$_3$ literature library,
 figure-generation scripts, calibration outputs, and SCF convergence-study
 artifacts needed to reproduce the analyses reported here. The primary

@@ -153,8 +153,10 @@ Z^{*2}/(\varepsilon \omega^2)$ is sufficiently nonlinear (with $\gamma =
 uncertainty distributions---e.g., when $\omega_{\mathrm{soft}}$ is near the
 phase transition and its distribution is skewed. The main text uses linear
 propagation, which is adequate for the current parameter regime (3--8\%
-input uncertainties). Monte Carlo propagation is deployed in subsequent work
-on systems near structural instabilities.
+input uncertainties). Monte Carlo propagation is the schema-supported route
+for certificates outside this linear regime, including cases where
+$\omega_{\mathrm{soft}}$ approaches zero and relative uncertainty summaries
+become ill-conditioned.
 
 
 \subsection{S1.4. Multi-Stage Process Chains}
@@ -198,8 +200,9 @@ microstructure, optical-mode, and fabrication models are specified.
 The following schematic chain is therefore a schema demonstration, not a
 completed device calculation. The DFT and Property stages use the uncertainty
 decomposition developed in the main text; the Effective and Device stages are
-schematic estimates showing where future certified domain, strain, geometry,
-overlap, and loss models would enter.
+schematic estimates showing where additional certified domain, strain,
+geometry, overlap, and loss models would enter if their exchangeability
+classes and model discrepancies were specified.
 
 \begin{center}
 \textbf{Illustrative multi-stage uncertainty propagation from DFT to
@@ -225,9 +228,9 @@ Device & $V_\pi L$ & $\sim$2.5 V$\cdot$cm & $\sim$27\% \\
 The current propagation chain does not capture optical propagation loss, which
 Kim and Demkov \cite{Kim2025_loss} have shown can be dominated by
 non-absorptive scattering at ferroelectric domain walls in BaTiO$_3$
-waveguides. A future device-level certificate should therefore include loss as
-a separate target observable rather than folding it into $r_{\mathrm{eff}}$ or
-$V_\pi L$.
+waveguides. Loss is therefore a separate out-of-scope target observable rather
+than a contribution that can be folded into $r_{\mathrm{eff}}$ or $V_\pi L$
+without its own certificate.
 
 
 \subsection{S1.5. Convergence Uncertainty Estimators}
@@ -270,8 +273,8 @@ where $\delta\rho_{\mathrm{final}}$ is the SCF residual norm.
 Several quantities available from a single calculation can provide qualitative
 convergence flags when explicit convergence sweeps are unavailable. These
 indicators are not used as calibrated uncertainty contributions in the main
-BaTiO$_3$ certificate; they are proposed as diagnostic metadata for future
-automation.
+BaTiO$_3$ certificate; they are optional diagnostic metadata for automated
+certificate generation.
 
 The decay rate of SCF residuals,
 \begin{equation}
@@ -336,7 +339,17 @@ example for a typed BaTiO$_3$ optical-gap certificate is:
   },
   "fusion": {
     "method": "typed_inverse_variance",
-    "covariance_policy": "diagonal_until_source_correlations_available"
+    "covariance_policy": "diagonal_until_source_correlations_available",
+    "effective_sample_size": null
+  },
+  "descriptor_selection": {
+    "mode_identification": "not_applicable",
+    "selected_descriptor": "optical_absorption_onset"
+  },
+  "model_discrepancy": {
+    "discrepancy_provenance": "referenced",
+    "carried_magnitude": 0.246,
+    "status": "carried_not_corrected"
   }
 }
 \end{verbatim}
@@ -355,6 +368,15 @@ Key fields:
     (\texttt{cubic}, \texttt{tetragonal}, etc.).
     \item \texttt{provenance.tensor\_component}: for anisotropic properties
     (\texttt{zz}, \texttt{xx}, \texttt{isotropic}, or \texttt{null}).
+    \item \texttt{descriptor\_selection}: the descriptor substituted into any
+    calibrated derived expression, including mode-identification status for
+    phonon-mediated response properties.
+    \item \texttt{model\_discrepancy.discrepancy\_provenance}: whether the
+    model discrepancy is referenced from literature or computed in the same
+    workflow, and whether it is carried as uncertainty or used as a correction.
+    \item \texttt{fusion.effective\_sample\_size}: the correlation-aware
+    number of exchangeable sources used in a fused posterior, together with
+    the stated \texttt{covariance\_policy}.
 \end{itemize}
 
 The schema captures all information needed to reconstruct uncertainty
@@ -365,7 +387,7 @@ under alternative threshold conventions.
 \subsection{S2.2. Support-Repository Extraction Interface}
 
 The paper support repository provides self-contained scripts that exercise the
-certificate extraction and aggregation logic without requiring the broader QFF
+certificate extraction and aggregation logic without requiring any external
 development package. The extraction case study reads the curated JSON library,
 partitions entries by phase and tensor component, computes inverse-variance
 weighted averages where exchangeability is justified, and writes an audit
@@ -565,7 +587,7 @@ are prefactors for the cutoff and $k$-point models defined in the main text
 (Eqs.~20--21), $E_0$ is the cutoff
 decay constant, and $\alpha$ is the $k$-point power law exponent. These
 parameters are not used as fitted soft-mode curve coefficients in
-Fig.~\ref{fig:omega_convergence}; that figure is a heuristic visual
+Fig.~1 of the main text; that figure is a heuristic visual
 interpolant based on Table~\ref{tab:si_heuristic}.}
 \label{tab:si_convergence_params}
 \begin{tabular}{lcccc}
@@ -692,12 +714,14 @@ The four tested groups are $P_s$ in the tetragonal scalar/isotropic subset,
 $Z^*_{\mathrm{Ti},zz}$ in the tetragonal subset, tetragonal lattice parameter
 $a$, and tetragonal soft-mode frequency. The pooled statistics are close to
 the standard-normal expectation, with RMS $z=1.05$ and reduced
-$\chi^2=1.10$. The room-temperature bulk experimental comparison for the
+$\chi^2=1.10$. For $n=15$ residuals, the sampling spread of the RMS statistic
+is approximately $1/\sqrt{2n}=0.18$, so the observed RMS is statistically
+indistinguishable from values near unity. The room-temperature bulk experimental comparison for the
 library-fused isotropic $r_{33}$ gives $z=0.11$ relative to the
 Zgonik et al.\ \cite{Zgonik1994} reference value, using the combined library and experimental
 uncertainties. These results support the claim that the present certificate
 library is not grossly miscalibrated at the scale probed by available data,
-while leaving full calibration across broader material classes as future work.
+but they do not certify transferability across broader material classes.
 In the same sense as property certificates, this validation result has its own
 scope and quality tier: it is strong enough to rule out obvious
 miscalibration in the BaTiO$_3$ library, but the sample size is too small to
@@ -921,9 +945,10 @@ certificate table as mode-provenance information rather than substituted into
 the calibrated $r_{33}$ rows. If the 144~cm$^{-1}$ mode were used in the
 $zz$ arithmetic with the same $Z^*$ and $\varepsilon^\infty$ values, the
 central $zz$ estimate would shift to approximately 134~pm/V. This sensitivity
-is precisely why future certificate schemas should include explicit
-phonon-mode symmetry and eigenvector metadata for derived electro-optic
-certificates.
+motivates the \texttt{mode\_identification} and
+\texttt{descriptor\_selection} fields in the certificate schema: the central
+value is conditional on the selected descriptor, and alternative descriptor
+forks can be retained as explicit audit metadata.
 
 The consistency between single-calculation and library-fused values, when
 the tensor convention is held fixed, validates the extraction pipeline and
