@@ -9,7 +9,7 @@ Department of Chemistry, University of Victoria
 
 ## Scope
 
-The repository contains the curated data, figure-generation scripts, calibration outputs, and manuscript source needed to reproduce the analyses reported in Paper 1. It is intentionally limited to the posterior-certificate case study and does not include the broader Quantum Ferroelectric Framework development workspace.
+The repository contains the curated data, figure-generation and validation scripts, calibration outputs, and manuscript source needed to reproduce the analyses reported in Paper 1. It is intentionally limited to the posterior-certificate case study and does not include the broader Quantum Ferroelectric Framework development workspace.
 
 The case study attaches decomposed uncertainty estimates to DFT-computed BaTiO3 properties, assigns Green/Amber/Red quality tiers, and propagates uncertainty through the soft-mode expression for the electro-optic coefficient r33. It also includes a typed band-gap certificate case study and Kyla Younger's independent SCF convergence study for a 40-atom BaTiO3 supercell.
 
@@ -34,7 +34,7 @@ scripts/
   phase_partition_analysis.py        # Phase/tensor partition table for r33
   extraction_case_study.py           # Self-contained literature-extraction audit summary
   gen_fig1_convergence.py            # Figure 1: soft-mode uncertainty propagation
-  gen_fig2_composite.py              # Figure 2: certificate decomposition + JSON example
+  gen_fig2_composite.py              # Figure 2: canonical asset validation + optional preview
   calibration_check.py               # Figure 3: leave-one-out calibration
   analyze_kyla_scf_convergence.py    # Figure 4: SCF convergence campaign
   band_gap_certificate_case_study.py # Typed band-gap artifacts and supplemental figure
@@ -55,8 +55,8 @@ convergence_study/
   kyla_younger_scf_20260525/         # Raw and processed SCF convergence study
 
 manuscript/
-  paper1_prb_main.tex                # Current PRB/revtex manuscript source
-  paper1_prb_supplemental.tex        # Current PRB/revtex Supplemental Material
+  paper1_main.tex                    # Current canonical manuscript source
+  paper1_supplemental.tex            # Current canonical Supplemental Material
   references_merged.bib              # Bibliography used by main text and SI
 ```
 
@@ -76,6 +76,12 @@ python scripts/band_gap_certificate_case_study.py
 The scripts are self-contained and do not require the unreleased broader QFF package.
 
 ## Generated Artifacts
+
+`figures/fig2_composite.pdf` and `figures/fig2_composite.png` are the canonical
+Overleaf Figure 2 assets. `scripts/gen_fig2_composite.py` validates these assets
+by default and does not overwrite them. To create a non-authoritative diagnostic
+preview from the JSON data, run `python scripts/gen_fig2_composite.py
+--regenerate-preview`.
 
 `scripts/calibration_check.py` regenerates `outputs/calibration/certificate_library_calibration.json`, `outputs/calibration/certificate_library_leave_one_out.csv`, and `figures/fig3_calibration_check.*`.
 

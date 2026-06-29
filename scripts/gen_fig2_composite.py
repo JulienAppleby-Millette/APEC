@@ -1,33 +1,36 @@
 #!/usr/bin/env python3
-"""Generate Figure 2: certificate decomposition plus example JSON record."""
+"""Validate the canonical Figure 2 assets.
+
+Figure 2 in the manuscript is the curated Overleaf composition containing the
+certificate decomposition panel and an example JSON certificate panel. A later
+experimental generator produced an over-wide variant by mixing the main-text
+certificate figure with the supplemental band-gap example. To prevent that
+regression, this script validates the checked-in canonical assets by default.
+
+Use ``--regenerate-preview`` only to create a non-authoritative diagnostic
+preview under ``outputs/fig2_regeneration_preview.*``. The preview is useful for
+checking the data pipeline but does not overwrite the canonical manuscript
+figure.
+"""
 
 from __future__ import annotations
 
+import argparse
 import json
+import re
+import struct
 from pathlib import Path
-
-import matplotlib
-
-matplotlib.use("Agg")
-import matplotlib.pyplot as plt
-import numpy as np
 
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PATH = ROOT / "data" / "posterior_certificates.json"
 FIG_DIR = ROOT / "figures"
+OUT_DIR = ROOT / "outputs"
 
-plt.rcParams.update(
-    {
-        "font.size": 11,
-        "font.family": "serif",
-        "axes.labelsize": 12,
-        "xtick.labelsize": 10,
-        "ytick.labelsize": 10,
-        "legend.fontsize": 9,
-        "figure.dpi": 300,
-    }
-)
+CANONICAL_PDF = FIG_DIR / "fig2_composite.pdf"
+CANONICAL_PNG = FIG_DIR / "fig2_composite.png"
+EXPECTED_ASPECT = 1.69
+ASPECT_TOLERANCE = 0.08
 
 
 LABELS = {
@@ -43,8 +46,62 @@ LABELS = {
     "a_lattice": r"$a$ (lattice)",
     "r_33_zz": r"$r_{33}$ ($zz$)",
     "r_33_iso": r"$r_{33}$ (iso)",
-    "E_gap_optical_typed": r"$E_g$ optical (typed)",
 }
+
+
+def _aspect_ok(aspect: float) -> bool:
+    return abs(aspect - EXPECTED_ASPECT) <= ASPECT_TOLERANCE
+
+
+def _pdf_page_aspect(path: Path) -> float:
+    data = path.read_bytes()
+    matches = re.findall(rb"/(?:MediaBox|CropBox)\s*\[([^\]]+)\]", data)
+    if not matches:
+        raise ValueError(f"Could not locate PDF page box in {path}")
+    values = [float(item) for item in matches[0].split()]
+    if len(values) != 4:
+        raise ValueError(f"Unexpected PDF page box in {path}: {matches[0]!r}")
+    width = abs(values[2] - values[0])
+    height = abs(values[3] - values[1])
+    return width / height
+
+
+def _png_page_aspect(path: Path) -> float:
+    with path.open("rb") as handle:
+        signature = handle.read(8)
+        if signature != b"\x89PNG\r\n\x1a\n":
+            raise ValueError(f"{path} is not a PNG file")
+        _chunk_len = handle.read(4)
+        chunk_type = handle.read(4)
+        if chunk_type != b"IHDR":
+            raise ValueError(f"{path} does not start with a PNG IHDR chunk")
+        width, height = struct.unpack(">II", handle.read(8))
+    return width / height
+
+
+def validate_canonical_assets() -> None:
+    missing = [path for path in (CANONICAL_PDF, CANONICAL_PNG) if not path.exists()]
+    if missing:
+        raise SystemExit(
+            "Missing canonical Figure 2 asset(s): "
+            + ", ".join(str(path) for path in missing)
+        )
+
+    pdf_aspect = _pdf_page_aspect(CANONICAL_PDF)
+    png_aspect = _png_page_aspect(CANONICAL_PNG)
+    print("Canonical Figure 2 validation")
+    print(f"  PDF: {CANONICAL_PDF}")
+    print(f"  PDF aspect: {pdf_aspect:.3f}")
+    print(f"  PNG: {CANONICAL_PNG}")
+    print(f"  PNG aspect: {png_aspect:.3f}")
+
+    if not _aspect_ok(pdf_aspect) or not _aspect_ok(png_aspect):
+        raise SystemExit(
+            "Figure 2 assets do not match the expected Overleaf aspect ratio. "
+            "Do not overwrite the canonical figure with a regenerated preview."
+        )
+
+    print("  status: OK")
 
 
 def _format_value(certificate: dict) -> str:
@@ -59,8 +116,6 @@ def _format_value(certificate: dict) -> str:
         return f"{value:.0f} cm$^{{-1}}$"
     if unit == "pm/V":
         return f"{value:.0f} pm/V"
-    if unit == "eV":
-        return f"{value:.2f} eV"
     if parameter == "c_over_a":
         return f"{value:.3f}"
     if unit == "dimensionless":
@@ -68,34 +123,67 @@ def _format_value(certificate: dict) -> str:
     return f"{value:.3g} {unit}"
 
 
-def load_certificates() -> tuple[list[dict], dict]:
-    payload = json.loads(DATA_PATH.read_text(encoding="utf-8"))
-    return list(payload["certificates"]), dict(payload["metadata"])
-
-
 def _example_certificate(certificate: dict) -> dict:
-    provenance = dict(certificate.get("provenance", {}))
-    if certificate["parameter"] == "E_gap_optical_typed":
-        return {
-            "parameter": certificate["parameter"],
-            "value": certificate["value"],
-            "unit": certificate["unit"],
-            "target_observable": certificate["target_observable"],
-            "quality_tier": certificate["quality_tier"],
-            "uncertainties": certificate["uncertainties"],
-            "non_exchangeability_rule": certificate["non_exchangeability_rule"],
-            "provenance": {
-                "phase": provenance.get("phase"),
-                "physical_evidence": provenance.get("physical_evidence_record_ids"),
-                "excluded_evidence": provenance.get("excluded_semilocal_record_ids"),
-                "calibration_status": provenance.get("calibration_status"),
-            },
-            "schema_version": "posterior-certificate-v1",
+    provenance = certificate.get("provenance", {})
+    return {
+        "parameter": certificate["parameter"],
+        "value": certificate["value"],
+        "unit": certificate["unit"],
+        "uncertainties": certificate["uncertainties"],
+        "quality_tier": certificate["quality_tier"],
+        "provenance": {
+            "code": provenance.get("code"),
+            "version": provenance.get("version"),
+            "functional": provenance.get("functional"),
+            "pseudopotential": provenance.get("pseudopotential"),
+            "phase": provenance.get("phase"),
+            "tensor_component": certificate.get("convention"),
+            "energy_cutoff_Ry": provenance.get("energy_cutoff_Ry"),
+            "kpoint_mesh": provenance.get("kpoint_mesh"),
+            "supercell": provenance.get("supercell"),
+            "n_atoms": provenance.get("n_atoms"),
+        },
+        "calibration": {
+            "Z_ref_e": provenance.get("Z_star_ref"),
+            "epsilon_ref": provenance.get("eps_inf_ref"),
+            "model": "soft-mode r33",
+        },
+        "schema_version": "posterior-certificate-v1",
+    }
+
+
+def regenerate_preview() -> None:
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    import numpy as np
+
+    payload = json.loads(DATA_PATH.read_text(encoding="utf-8"))
+    certificates = [
+        cert
+        for cert in payload["certificates"]
+        if cert["parameter"] in LABELS
+    ]
+    example = next(cert for cert in certificates if cert["parameter"] == "r_33_iso")
+
+    plt.rcParams.update(
+        {
+            "font.size": 8,
+            "font.family": "serif",
+            "axes.labelsize": 9,
+            "xtick.labelsize": 7,
+            "ytick.labelsize": 7,
+            "legend.fontsize": 7,
+            "figure.dpi": 300,
         }
-    return certificate
+    )
 
+    fig = plt.figure(figsize=(9.2, 5.45))
+    grid = fig.add_gridspec(1, 2, width_ratios=[1.75, 1.0], wspace=0.25)
+    ax = fig.add_subplot(grid[0, 0])
+    ax_json = fig.add_subplot(grid[0, 1])
 
-def draw_certificate_bars(ax: plt.Axes, certificates: list[dict]) -> None:
     y_pos = np.arange(len(certificates))
     sigma_conv = np.array(
         [float(cert["uncertainties"].get("convergence", 0.0)) for cert in certificates]
@@ -110,160 +198,115 @@ def draw_certificate_bars(ax: plt.Axes, certificates: list[dict]) -> None:
         [float(cert["uncertainties"].get("model_form", 0.0)) for cert in certificates]
     )
     sigma_total = np.array(
-        [
-            float(
-                cert["uncertainties"].get(
-                    "total",
-                    np.sqrt(
-                        sigma_conv[i] ** 2
-                        + sigma_meth[i] ** 2
-                        + sigma_dft[i] ** 2
-                        + sigma_model[i] ** 2
-                    ),
-                )
-            )
-            for i, cert in enumerate(certificates)
-        ]
+        [float(cert["uncertainties"].get("total", 0.0)) for cert in certificates]
     )
 
-    ax.barh(
-        y_pos,
-        sigma_total,
-        height=0.65,
-        color="#E8E8E8",
-        edgecolor="#CCCCCC",
-        linewidth=0.5,
-        zorder=1,
-    )
-
+    ax.barh(y_pos, sigma_total, height=0.65, color="#E8E8E8", edgecolor="#CCCCCC")
     bar_h = 0.14
     offsets = [-1.5 * bar_h, -0.5 * bar_h, 0.5 * bar_h, 1.5 * bar_h]
-
-    ax.barh(
-        y_pos + offsets[0],
-        sigma_conv,
-        height=bar_h,
-        color="#4477AA",
-        alpha=0.9,
-        label=r"$\sigma_{\mathrm{conv}}$",
-        zorder=2,
-    )
-    ax.barh(
-        y_pos + offsets[1],
-        sigma_meth,
-        height=bar_h,
-        color="#CC6677",
-        alpha=0.9,
-        label=r"$\sigma_{\mathrm{method}}$",
-        zorder=2,
-    )
+    ax.barh(y_pos + offsets[0], sigma_conv, height=bar_h, color="#4477AA", label=r"$\sigma_{\mathrm{conv}}$")
+    ax.barh(y_pos + offsets[1], sigma_meth, height=bar_h, color="#CC6677", label=r"$\sigma_{\mathrm{method}}$")
     ax.barh(
         y_pos + offsets[2],
         sigma_dft,
         height=bar_h,
         color="#666666",
-        alpha=0.9,
         hatch="///",
         edgecolor="#444444",
         linewidth=0.3,
         label=r"$\sigma_{\mathrm{DFT}}$",
-        zorder=2,
     )
-
     model_vals = np.where(sigma_model > 0, sigma_model, np.nan)
     ax.barh(
         y_pos + offsets[3],
         model_vals,
         height=bar_h,
         color="#DDAA33",
-        alpha=0.9,
         hatch="...",
         edgecolor="#AA7700",
         linewidth=0.3,
         label=r"$\sigma_{\mathrm{model}}$",
-        zorder=2,
     )
 
-    ax.axvline(x=5, color="#2E8B57", linestyle="--", linewidth=1.2, alpha=0.75, zorder=3)
-    ax.axvline(x=15, color="#CC3333", linestyle="--", linewidth=1.2, alpha=0.75, zorder=3)
-
-    ax.text(2.5, -1.25, "Green", ha="center", fontsize=11, color="#2E8B57", fontweight="bold")
-    ax.text(10, -1.25, "Amber", ha="center", fontsize=11, color="#CC8800", fontweight="bold")
-    ax.text(32, -1.25, "Red", ha="center", fontsize=11, color="#CC3333", fontweight="bold")
+    ax.axvline(x=5, color="#2E8B57", linestyle="--", linewidth=0.8, alpha=0.7)
+    ax.axvline(x=15, color="#CC3333", linestyle="--", linewidth=0.8, alpha=0.7)
+    ax.text(2.5, -1.25, "Green", ha="center", fontsize=8, color="#2E8B57", fontweight="bold")
+    ax.text(10, -1.25, "Amber", ha="center", fontsize=8, color="#CC8800", fontweight="bold")
+    ax.text(23, -1.25, "Red", ha="center", fontsize=8, color="#CC3333", fontweight="bold")
 
     for i, st in enumerate(sigma_total):
         label = f"{st:.1f}%" if st >= 10 else f"{st:.2f}%"
-        ax.text(st + 0.35, i, label, va="center", fontsize=9, color="#333333")
+        ax.text(st + 0.35, i, label, va="center", fontsize=6, color="#333333")
 
-    ax.axhline(y=9.5, xmin=0, xmax=1, color="#CCCCCC", linewidth=0.5, linestyle=":", zorder=0)
-    ax.axhline(y=11.5, xmin=0, xmax=1, color="#CCCCCC", linewidth=0.5, linestyle=":", zorder=0)
-
-    ylabels = [
-        f"{LABELS.get(cert['parameter'], cert['parameter'])}  =  {_format_value(cert)}"
-        for cert in certificates
-    ]
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(ylabels, fontsize=9, color="#222222")
+    ax.set_yticklabels(
+        [
+            f"{LABELS[cert['parameter']]}  =  {_format_value(cert)}"
+            for cert in certificates
+        ],
+        fontsize=6.7,
+    )
     ax.set_xlabel(r"Relative uncertainty, $\sigma/|P|$ (%)")
-    ax.set_xlim(0, max(32.0, float(np.max(sigma_total)) + 4.0))
+    ax.set_xlim(0, 30)
     ax.set_ylim(len(certificates) - 0.5, -1.9)
-    ax.legend(loc="upper right", framealpha=0.95, ncol=2, bbox_to_anchor=(0.99, 0.93))
+    ax.legend(loc="upper right", framealpha=0.95, ncol=2)
     ax.set_title("a) Certificate uncertainty decomposition", loc="left", fontweight="bold")
 
-
-def draw_json_panel(ax: plt.Axes, certificates: list[dict]) -> None:
-    ax.axis("off")
-    ax.set_title("b) Typed band-gap JSON certificate", loc="left", fontweight="bold", pad=10)
-
-    band_gap = next(
-        cert for cert in certificates if cert["parameter"] == "E_gap_optical_typed"
-    )
-    code = json.dumps(_example_certificate(band_gap), indent=2)
-    ax.text(
+    ax_json.axis("off")
+    ax_json.set_title("b) Example JSON certificate", loc="left", fontweight="bold")
+    ax_json.text(
         0.03,
         0.97,
-        code,
+        json.dumps(_example_certificate(example), indent=2),
         va="top",
         ha="left",
         family="DejaVu Sans Mono",
-        fontsize=7.25,
+        fontsize=4.8,
         color="#111111",
-        transform=ax.transAxes,
+        transform=ax_json.transAxes,
         bbox={
-            "boxstyle": "round,pad=0.55",
+            "boxstyle": "round,pad=0.4",
             "facecolor": "#F7F7F2",
             "edgecolor": "#CCCCCC",
-            "linewidth": 0.8,
+            "linewidth": 0.6,
         },
     )
-    ax.text(
+    ax_json.text(
         0.03,
         0.05,
         "All uncertainty components are relative percentages.\n"
-        "The band-gap record demonstrates target-observable typing.",
+        "The full table contains one record per certified property.",
         va="bottom",
         ha="left",
-        fontsize=8.5,
+        fontsize=6,
         color="#444444",
-        transform=ax.transAxes,
+        transform=ax_json.transAxes,
     )
+
+    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    pdf_path = OUT_DIR / "fig2_regeneration_preview.pdf"
+    png_path = OUT_DIR / "fig2_regeneration_preview.png"
+    fig.savefig(pdf_path, bbox_inches="tight")
+    fig.savefig(png_path, bbox_inches="tight", dpi=300)
+    plt.close(fig)
+    print("Wrote non-authoritative Figure 2 preview:")
+    print(f"  {pdf_path}")
+    print(f"  {png_path}")
+    print("Canonical manuscript assets were not overwritten.")
 
 
 def main() -> None:
-    FIG_DIR.mkdir(parents=True, exist_ok=True)
-    certificates, _metadata = load_certificates()
-    fig = plt.figure(figsize=(14.6, 9.2))
-    grid = fig.add_gridspec(1, 2, width_ratios=[1.9, 1.15], wspace=0.24)
-    ax_bars = fig.add_subplot(grid[0, 0])
-    ax_json = fig.add_subplot(grid[0, 1])
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--regenerate-preview",
+        action="store_true",
+        help="write a diagnostic preview under outputs/ without overwriting canonical assets",
+    )
+    args = parser.parse_args()
 
-    draw_certificate_bars(ax_bars, certificates)
-    draw_json_panel(ax_json, certificates)
-
-    fig.savefig(FIG_DIR / "fig2_composite.pdf", bbox_inches="tight")
-    fig.savefig(FIG_DIR / "fig2_composite.png", bbox_inches="tight", dpi=300)
-    plt.close(fig)
-    print("Figure saved: fig2_composite.pdf and fig2_composite.png")
+    validate_canonical_assets()
+    if args.regenerate_preview:
+        regenerate_preview()
 
 
 if __name__ == "__main__":
