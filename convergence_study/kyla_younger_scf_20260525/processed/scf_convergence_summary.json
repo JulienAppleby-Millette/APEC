@@ -1,0 +1,51 @@
+{
+  "n_atoms": 40,
+  "n_runs": 37,
+  "functionals": {
+    "PBE": {
+      "n_runs": 28,
+      "ecut_ry_values": [
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "kmesh_values": [
+        4,
+        6,
+        8,
+        10
+      ],
+      "reference_file": "PBE_90_10_scf.out",
+      "first_cutoff_all_k_below_10_mev_atom": 70,
+      "first_cutoff_all_k_below_1_mev_atom": 80,
+      "kmesh_span_at_max_cutoff_mev_atom": 0.0005680378678117618,
+      "production_60ry_6_delta_mev_atom": 11.351889648723612,
+      "max_scf_accuracy_ry": 9.4e-11,
+      "all_converged": true
+    },
+    "PBEsol": {
+      "n_runs": 9,
+      "ecut_ry_values": [
+        40,
+        60,
+        80
+      ],
+      "kmesh_values": [
+        4,
+        6,
+        8
+      ],
+      "reference_file": "PBEsol_80_8_scf.out",
+      "first_cutoff_all_k_below_10_mev_atom": 80,
+      "first_cutoff_all_k_below_1_mev_atom": 80,
+      "kmesh_span_at_max_cutoff_mev_atom": 0.0012551252195231657,
+      "production_60ry_6_delta_mev_atom": 10.510687058441608,
+      "max_scf_accuracy_ry": 8.1e-11,
+      "all_converged": true
+    }
+  }
+}

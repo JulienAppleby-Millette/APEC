@@ -1,0 +1,1269 @@
+{
+  "metadata": {
+    "schema": "qff.paper1.scf_energy_certificate_set.v1",
+    "n_certificates": 37,
+    "n_atoms": 40,
+    "description": "SCF total-energy convergence certificates derived from Kyla Younger's BaTiO3 convergence campaign.",
+    "fusion_warning": "Do not inverse-variance-fuse different cutoffs or k-meshes as independent estimates of the same property; these records are intended for convergence-model calibration and SI diagnostics."
+  },
+  "certificates": [
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2027.7186304129937,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 1106.9128072776562,
+        "scf_residual_abs_mev_per_atom": 1.3265550794919151e-08,
+        "total_abs_mev_per_atom": 1106.9128072776562,
+        "relative_percent": 0.054589073191688674
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 30,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_30_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2027.7171994104094,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 1108.343809861871,
+        "scf_residual_abs_mev_per_atom": 2.6190959261763452e-08,
+        "total_abs_mev_per_atom": 1108.343809861871,
+        "relative_percent": 0.05465968381508719
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 30,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_30_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2027.7182166604646,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 1107.3265598069054,
+        "scf_residual_abs_mev_per_atom": 2.5170532277538897e-09,
+        "total_abs_mev_per_atom": 1107.3265598069054,
+        "relative_percent": 0.054609489164160516
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 30,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_30_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2027.717875684788,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 1107.6675354836025,
+        "scf_residual_abs_mev_per_atom": 2.210925132486525e-08,
+        "total_abs_mev_per_atom": 1107.6675354836025,
+        "relative_percent": 0.054626314082748234
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 30,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_30_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.76868512395,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.85809632120801,
+        "scf_residual_abs_mev_per_atom": 2.006839735641615e-08,
+        "total_abs_mev_per_atom": 56.85809632120801,
+        "relative_percent": 0.0028025913815667063
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_40_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.7687069032631,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.836317008104245,
+        "scf_residual_abs_mev_per_atom": 7.142988889571849e-09,
+        "total_abs_mev_per_atom": 56.836317008104245,
+        "relative_percent": 0.002801517827769528
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_40_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.7686885219719,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.85469829940049,
+        "scf_residual_abs_mev_per_atom": 1.22451238106946e-08,
+        "total_abs_mev_per_atom": 56.85469829940049,
+        "relative_percent": 0.002802423885042366
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_40_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.7686814027934,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.86181747821284,
+        "scf_residual_abs_mev_per_atom": 1.258526613876945e-08,
+        "total_abs_mev_per_atom": 56.86181747821284,
+        "relative_percent": 0.0028027748061891264
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_40_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8062298130305,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 19.3134072409297,
+        "scf_residual_abs_mev_per_atom": 2.3809962965239503e-08,
+        "total_abs_mev_per_atom": 19.3134072409297,
+        "relative_percent": 0.0009519591845254522
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 50,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_50_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8062316532003,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 19.311567070905816,
+        "scf_residual_abs_mev_per_atom": 3.1973378839035897e-08,
+        "total_abs_mev_per_atom": 19.311567070905816,
+        "relative_percent": 0.0009518684815537818
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 50,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_50_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.806233738273,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 19.309481998520802,
+        "scf_residual_abs_mev_per_atom": 2.006839735641615e-08,
+        "total_abs_mev_per_atom": 19.309481998520802,
+        "relative_percent": 0.0009517657072130145
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 50,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_50_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.80623387433,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 19.30934594148164,
+        "scf_residual_abs_mev_per_atom": 1.5986689419517948e-08,
+        "total_abs_mev_per_atom": 19.30934594148164,
+        "relative_percent": 0.0009517590008882886
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 50,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_50_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.814193793253,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 11.349427018325612,
+        "scf_residual_abs_mev_per_atom": 1.29254084668443e-08,
+        "total_abs_mev_per_atom": 11.349427018325612,
+        "relative_percent": 0.0005594118501855364
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_60_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8141913306226,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 11.351889648723612,
+        "scf_residual_abs_mev_per_atom": 1.7007116403742498e-08,
+        "total_abs_mev_per_atom": 11.351889648723612,
+        "relative_percent": 0.0005595332336116171
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_60_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.814189694538,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 11.35352573334343,
+        "scf_residual_abs_mev_per_atom": 2.17691089967904e-08,
+        "total_abs_mev_per_atom": 11.35352573334343,
+        "relative_percent": 0.0005596138764710057
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_60_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8141889836406,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 11.354236630715665,
+        "scf_residual_abs_mev_per_atom": 1.3605693122993999e-08,
+        "total_abs_mev_per_atom": 11.354236630715665,
+        "relative_percent": 0.0005596489167104904
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_60_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8214503964832,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 4.092823788393849,
+        "scf_residual_abs_mev_per_atom": 2.31296783090898e-08,
+        "total_abs_mev_per_atom": 4.092823788393849,
+        "relative_percent": 0.0002017340553844207
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 70,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_70_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8214507196183,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 4.092500653196527,
+        "scf_residual_abs_mev_per_atom": 1.054441217032035e-08,
+        "total_abs_mev_per_atom": 4.092500653196527,
+        "relative_percent": 0.00020171812811545968
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 70,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_70_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8214503046445,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 4.0929156267792735,
+        "scf_residual_abs_mev_per_atom": 2.278953598101495e-08,
+        "total_abs_mev_per_atom": 4.0929156267792735,
+        "relative_percent": 0.00020173858207998976
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 70,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_70_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8214486311444,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 4.094589126968851,
+        "scf_residual_abs_mev_per_atom": 8.8437005299461e-09,
+        "total_abs_mev_per_atom": 4.094589126968851,
+        "relative_percent": 0.00020182106856823153
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 70,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_70_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8248127374104,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.7304828610571696,
+        "scf_residual_abs_mev_per_atom": 1.1224696826470051e-08,
+        "total_abs_mev_per_atom": 0.7304828610571698,
+        "relative_percent": 3.6005221173905056e-05
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_80_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8248141217894,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.7290984818824611,
+        "scf_residual_abs_mev_per_atom": 2.7211386245987998e-08,
+        "total_abs_mev_per_atom": 0.7290984818824616,
+        "relative_percent": 3.593698562870072e-05
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_80_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8248138972958,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.7293229756103807,
+        "scf_residual_abs_mev_per_atom": 5.10213492112275e-09,
+        "total_abs_mev_per_atom": 0.7293229756103807,
+        "relative_percent": 3.594805084276246e-05
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_80_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.824814131994,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.7290882774111755,
+        "scf_residual_abs_mev_per_atom": 2.346982063716465e-08,
+        "total_abs_mev_per_atom": 0.7290882774111759,
+        "relative_percent": 3.593648265402879e-05
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_80_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8255427338677,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.00048640364431479867,
+        "scf_residual_abs_mev_per_atom": 1.63268317475928e-08,
+        "total_abs_mev_per_atom": 0.0004864036445888154,
+        "relative_percent": 2.3974641207118302e-08
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 90,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_90_4_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8255433019053,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 8.163422349696307e-05,
+        "scf_residual_abs_mev_per_atom": 2.7551528574062848e-08,
+        "total_abs_mev_per_atom": 8.16342281462797e-05,
+        "relative_percent": 4.023718471792322e-09
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 90,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_90_6_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8255432678911,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 4.761973168832786e-05,
+        "scf_residual_abs_mev_per_atom": 1.3605693122993999e-08,
+        "total_abs_mev_per_atom": 4.761973363200619e-05,
+        "relative_percent": 2.347157634623608e-09
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 90,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_90_8_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2028.8255432202714,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.0,
+        "scf_residual_abs_mev_per_atom": 1.02042698422455e-08,
+        "total_abs_mev_per_atom": 1.02042698422455e-08,
+        "relative_percent": 5.029643813557612e-13
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBE",
+        "ecut_ry": 90,
+        "kpoint_mesh": [
+          10,
+          10,
+          10
+        ],
+        "n_atoms": 40,
+        "source_file": "PBE_90_10_scf.out",
+        "reference_file": "PBE_90_10_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.417479246702,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.78253030167302,
+        "scf_residual_abs_mev_per_atom": 2.7551528574062848e-08,
+        "total_abs_mev_per_atom": 56.78253030167302,
+        "relative_percent": 0.00283569889347122
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_40_4_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.417502420599,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.759356404613925,
+        "scf_residual_abs_mev_per_atom": 1.29254084668443e-08,
+        "total_abs_mev_per_atom": 56.759356404613925,
+        "relative_percent": 0.00283454156468374
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_40_6_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.4174832637832,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 56.778513220569344,
+        "scf_residual_abs_mev_per_atom": 1.83676857160419e-08,
+        "total_abs_mev_per_atom": 56.778513220569344,
+        "relative_percent": 0.0028354982762148497
+      },
+      "quality_tier": "Red",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 40,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_40_8_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.463753668224,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 10.508108779637661,
+        "scf_residual_abs_mev_per_atom": 2.31296783090898e-08,
+        "total_abs_mev_per_atom": 10.508108779637661,
+        "relative_percent": 0.0005247590005256437
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_60_4_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.4637510899452,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 10.510687058441608,
+        "scf_residual_abs_mev_per_atom": 1.1224696826470051e-08,
+        "total_abs_mev_per_atom": 10.510687058441608,
+        "relative_percent": 0.0005248877565309545
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_60_6_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.4637494674662,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 10.512309537512191,
+        "scf_residual_abs_mev_per_atom": 5.78241957727245e-09,
+        "total_abs_mev_per_atom": 10.512309537512191,
+        "relative_percent": 0.000524968781098176
+      },
+      "quality_tier": "Amber",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 60,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_60_8_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.4742607327667,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.0010442370408409118,
+        "scf_residual_abs_mev_per_atom": 1.054441217032035e-08,
+        "total_abs_mev_per_atom": 0.0010442370408941491,
+        "relative_percent": 5.214733898811917e-08
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          4,
+          4,
+          4
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_80_4_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.4742619878919,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.00021088817868225397,
+        "scf_residual_abs_mev_per_atom": 1.258526613876945e-08,
+        "total_abs_mev_per_atom": 0.0002108881790577822,
+        "relative_percent": 1.0531380255965424e-08
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_80_6_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    },
+    {
+      "parameter": "total_energy_per_atom",
+      "value": -2002.4742617770037,
+      "unit": "eV/atom",
+      "uncertainties": {
+        "convergence_abs_mev_per_atom": 0.0,
+        "scf_residual_abs_mev_per_atom": 1.6666974075667648e-08,
+        "total_abs_mev_per_atom": 1.6666974075667648e-08,
+        "relative_percent": 8.3231901621933e-13
+      },
+      "quality_tier": "Green",
+      "tier_basis": {
+        "quantity": "absolute total-energy convergence",
+        "green_abs_mev_per_atom_max": 1.0,
+        "amber_abs_mev_per_atom_max": 15.0,
+        "note": "Diagnostic SCF energy tiers are not interchangeable with relative Green/Amber/Red tensor-property tiers."
+      },
+      "scope": "SCF total-energy numerical convergence only; does not certify DFPT phonons, Born charges, dielectric tensors, or electro-optic response properties.",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "functional": "PBEsol",
+        "ecut_ry": 80,
+        "kpoint_mesh": [
+          8,
+          8,
+          8
+        ],
+        "n_atoms": 40,
+        "source_file": "PBEsol_80_8_scf.out",
+        "reference_file": "PBEsol_80_8_scf.out",
+        "converged": true,
+        "job_done": true
+      }
+    }
+  ]
+}

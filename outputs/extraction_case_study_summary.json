@@ -1,0 +1,155 @@
+{
+  "metadata": {
+    "description": "BaTiO3 literature database with 2024-2025 additions",
+    "date": "2026-03-14T05:36:59.022619",
+    "papers_added": [
+      "Amounas et al., Physica B 674, 415536 (2024)",
+      "This work (QE 7.5 PBE/PAW DFPT)"
+    ],
+    "experimental_refs_added": [
+      "Reynaud et al., Commun. Mater. 6, 176 (2025)",
+      "Suceava et al., Adv. Mater. 37, e2507564 (2025)"
+    ]
+  },
+  "n_database_entries": 36,
+  "counts_by_source_class": {
+    "curated_literature": 26,
+    "experimental_reference": 4,
+    "phonondb": 3,
+    "production_qe": 3
+  },
+  "counts_by_property": {
+    "E_gap": 5,
+    "P_s": 4,
+    "Z_star_Ba": 1,
+    "Z_star_O": 2,
+    "Z_star_Ti": 6,
+    "epsilon_inf": 5,
+    "lattice_a": 5,
+    "lattice_c": 2,
+    "omega_soft": 6
+  },
+  "weighted_tetragonal_summary": {
+    "omega_soft": {
+      "isotropic_or_unspecified": {
+        "mean": 175.60144274120827,
+        "sigma": 3.6034248812292256,
+        "n": 5
+      }
+    },
+    "Z_star_Ti": {
+      "xx": {
+        "mean": 6.435,
+        "sigma": 0.14142135623730953,
+        "n": 2
+      },
+      "zz": {
+        "mean": 7.2926829268292686,
+        "sigma": 0.1874085142663273,
+        "n": 3
+      }
+    },
+    "epsilon_inf": {
+      "isotropic_or_unspecified": {
+        "mean": 6.7950819672131155,
+        "sigma": 0.19205531989934396,
+        "n": 2
+      },
+      "zz": {
+        "mean": 6.3549999999999995,
+        "sigma": 0.14142135623730953,
+        "n": 2
+      }
+    },
+    "P_s": {
+      "isotropic_or_unspecified": {
+        "mean": 0.26816326530612244,
+        "sigma": 0.008571428571428572,
+        "n": 3
+      }
+    },
+    "lattice_a": {
+      "isotropic_or_unspecified": {
+        "mean": 3.988909090909091,
+        "sigma": 0.004264014327112209,
+        "n": 4
+      }
+    }
+  },
+  "phase_partition_r33_rows": [
+    {
+      "case": "unpartitioned_library",
+      "omega_soft_cm-1": 176.0,
+      "Z_star_Ti": 7.29,
+      "epsilon_inf": 6.51,
+      "r33_pm_per_V": 113.676
+    },
+    {
+      "case": "tetragonal_isotropic_avg",
+      "omega_soft_cm-1": 172.0,
+      "Z_star_Ti": 6.85,
+      "epsilon_inf": 6.31,
+      "r33_pm_per_V": 108.422
+    },
+    {
+      "case": "tetragonal_zz_only",
+      "omega_soft_cm-1": 172.0,
+      "Z_star_Ti": 6.2,
+      "epsilon_inf": 5.96,
+      "r33_pm_per_V": 94.038
+    },
+    {
+      "case": "single_calc_zz",
+      "omega_soft_cm-1": 172.0,
+      "Z_star_Ti": 6.2,
+      "epsilon_inf": 5.96,
+      "r33_pm_per_V": 94.038
+    },
+    {
+      "case": "single_calc_iso",
+      "omega_soft_cm-1": 172.0,
+      "Z_star_Ti": 6.85,
+      "epsilon_inf": 6.32,
+      "r33_pm_per_V": 108.25
+    }
+  ],
+  "experimental_references": [
+    {
+      "parameter": "r_eff",
+      "value": 550,
+      "uncertainty": 50,
+      "unit": "pm/V",
+      "source": "Reynaud et al., Commun. Mater. 6, 176 (2025)",
+      "doi": "10.1038/s43246-025-00908-x",
+      "conditions": "150 nm film on Si, MBE, room temperature, a-axis normalized",
+      "notes": "Effective coefficient, domain-averaged. Depends on a-axis volume fraction."
+    },
+    {
+      "parameter": "r_33",
+      "value": 2516,
+      "uncertainty": 100,
+      "unit": "pm/V",
+      "source": "Suceava et al., Adv. Mater. 37, e2507564 (2025)",
+      "doi": "10.1002/adma.202507564",
+      "conditions": "Strained BTO thin film, 5 K, monoclinic metastable phase",
+      "notes": "Cryogenic measurement. Metastable phase stabilized by strain."
+    },
+    {
+      "parameter": "r_33",
+      "value": 105,
+      "uncertainty": 15,
+      "unit": "pm/V",
+      "source": "Zgonik et al., PRB 50, 5941 (1994)",
+      "doi": "10.1103/PhysRevB.50.5941",
+      "conditions": "Bulk single crystal, room temperature",
+      "notes": "Standard room-temperature reference value."
+    }
+  ],
+  "source_policy": {
+    "curated_literature": "quantitative fusion input when phase/component typed",
+    "production_qe": "certificate generation input and library cross-check",
+    "phonondb": "typed literature/database support",
+    "materials_project": "retrospective extraction stress test unless fully typed",
+    "experimental_reference": "calibration/check target, not a DFT fusion row"
+  }
+}

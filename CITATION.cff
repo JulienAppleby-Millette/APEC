@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the associated manuscript."
+title: "A Posteriori Error Certificates (APECs): Certifying Uncertainty Through the Soft-Mode Bottleneck in BaTiO3"
+type: dataset
+authors:
+  - family-names: Appleby-Millette
+    given-names: Julien
+  - family-names: Younger
+    given-names: Kyla
+  - family-names: Baker
+    given-names: Thomas
+  - family-names: Paci
+    given-names: Irina
+year: 2026
+repository-code: "https://github.com/Somebody-Probably/QFF_project"
+license: CC-BY-4.0
+keywords:
+  - BaTiO3
+  - density functional theory
+  - uncertainty quantification
+  - electro-optics
+  - posterior certification

@@ -1,0 +1,6 @@
+parameter,value_eV,sigma_total_percent,quality_tier,target_observable,method_class,functional,exchangeability_group,physical_gap_evidence,relative_offset_from_optical_reference_percent,source,doi
+E_gap_KS_LDA_Wahl2008,1.73,49.218,Red,Kohn-Sham eigenvalue gap,semilocal_ks,LDA,"semilocal Kohn-Sham gap, not directly exchangeable with optical gap",False,-45.938,Wahl PRB 2008 / semilocal BaTiO3 benchmark,10.1103/PhysRevB.78.104116
+E_gap_KS_PBE_Wahl2008,1.8,45.824,Red,Kohn-Sham eigenvalue gap,semilocal_ks,PBE,"semilocal Kohn-Sham gap, not directly exchangeable with optical gap",False,-43.75,Wahl PRB 2008 / semilocal BaTiO3 benchmark,10.1103/PhysRevB.78.104116
+E_gap_TB_mBJ_ACSOmega2020,2.78,19.751,Red,screened-potential band-gap proxy,tb_mbj_proxy,TB-mBJ,"band-gap proxy, closer to physical gap but still model dependent",True,-13.125,Y-doped BaTiO3 ACS Omega 2020,10.1021/acsomega.0c01638
+E_gap_HSE06_proxy_Bilc2008,3.1,19.865,Red,hybrid-functional band-gap proxy,hybrid_ks_proxy,HSE06,hybrid proxy for physical gap; calibration metadata required before high-tier use,True,-3.125,Hybrid-functional BaTiO3 literature proxy,10.1103/PhysRevB.77.165107
+E_gap_optical_Wemple1970,3.2,3.125,Green,room-temperature optical absorption onset,optical_experiment,Experiment,physical optical gap,True,0.0,Di Domenico and Wemple optical BaTiO3 reference,

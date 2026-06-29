@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "schema": "qff.paper1.band_gap_certificate_case_study.v1",
+    "n_evidence_records": 5,
+    "n_method_certificates": 5,
+    "target_material": "tetragonal BaTiO3",
+    "purpose": "Promoted Paper 1 case study showing that posterior certificates preserve target-observable typing for band gaps."
+  },
+  "optical_reference": {
+    "record_id": "optical_Wemple1970",
+    "value": 3.2,
+    "sigma": 0.1,
+    "source": "Di Domenico and Wemple optical BaTiO3 reference"
+  },
+  "method_certificates": [
+    {
+      "parameter": "E_gap_KS_LDA_Wahl2008",
+      "value": 1.73,
+      "unit": "eV",
+      "uncertainties": {
+        "convergence": 5.78,
+        "methodological": 42.0,
+        "intrinsic_dft": 25.0,
+        "model_form": 0.0,
+        "total": 49.218
+      },
+      "quality_tier": "Red",
+      "target_observable": "Kohn-Sham eigenvalue gap",
+      "phase": "tetragonal",
+      "exchangeability_group": "semilocal Kohn-Sham gap, not directly exchangeable with optical gap",
+      "physical_gap_evidence": false,
+      "relative_offset_from_optical_reference_percent": -45.938,
+      "provenance": {
+        "functional": "LDA",
+        "method_class": "semilocal_ks",
+        "source": "Wahl PRB 2008 / semilocal BaTiO3 benchmark",
+        "doi": "10.1103/PhysRevB.78.104116",
+        "notes": "Numerically useful DFT output but Red-tier evidence for a physical optical or quasiparticle gap."
+      }
+    },
+    {
+      "parameter": "E_gap_KS_PBE_Wahl2008",
+      "value": 1.8,
+      "unit": "eV",
+      "uncertainties": {
+        "convergence": 5.556,
+        "methodological": 38.0,
+        "intrinsic_dft": 25.0,
+        "model_form": 0.0,
+        "total": 45.824
+      },
+      "quality_tier": "Red",
+      "target_observable": "Kohn-Sham eigenvalue gap",
+      "phase": "tetragonal",
+      "exchangeability_group": "semilocal Kohn-Sham gap, not directly exchangeable with optical gap",
+      "physical_gap_evidence": false,
+      "relative_offset_from_optical_reference_percent": -43.75,
+      "provenance": {
+        "functional": "PBE",
+        "method_class": "semilocal_ks",
+        "source": "Wahl PRB 2008 / semilocal BaTiO3 benchmark",
+        "doi": "10.1103/PhysRevB.78.104116",
+        "notes": "Representative semilocal gap; benchmark-scale underestimation is encoded as methodological and intrinsic-DFT uncertainty."
+      }
+    },
+    {
+      "parameter": "E_gap_TB_mBJ_ACSOmega2020",
+      "value": 2.78,
+      "unit": "eV",
+      "uncertainties": {
+        "convergence": 5.396,
+        "methodological": 15.0,
+        "intrinsic_dft": 10.0,
+        "model_form": 6.0,
+        "total": 19.751
+      },
+      "quality_tier": "Red",
+      "target_observable": "screened-potential band-gap proxy",
+      "phase": "tetragonal",
+      "exchangeability_group": "band-gap proxy, closer to physical gap but still model dependent",
+      "physical_gap_evidence": true,
+      "relative_offset_from_optical_reference_percent": -13.125,
+      "provenance": {
+        "functional": "TB-mBJ",
+        "method_class": "tb_mbj_proxy",
+        "source": "Y-doped BaTiO3 ACS Omega 2020",
+        "doi": "10.1021/acsomega.0c01638",
+        "notes": "Retained as proxy physical-gap evidence; not fused with semilocal Kohn-Sham gaps."
+      }
+    },
+    {
+      "parameter": "E_gap_HSE06_proxy_Bilc2008",
+      "value": 3.1,
+      "unit": "eV",
+      "uncertainties": {
+        "convergence": 6.452,
+        "methodological": 15.0,
+        "intrinsic_dft": 8.0,
+        "model_form": 8.0,
+        "total": 19.865
+      },
+      "quality_tier": "Red",
+      "target_observable": "hybrid-functional band-gap proxy",
+      "phase": "tetragonal",
+      "exchangeability_group": "hybrid proxy for physical gap; calibration metadata required before high-tier use",
+      "physical_gap_evidence": true,
+      "relative_offset_from_optical_reference_percent": -3.125,
+      "provenance": {
+        "functional": "HSE06",
+        "method_class": "hybrid_ks_proxy",
+        "source": "Hybrid-functional BaTiO3 literature proxy",
+        "doi": "10.1103/PhysRevB.77.165107",
+        "notes": "Placeholder for prior HSE06 exact-exchange calibration work; calibrated parameters are not yet imported."
+      }
+    },
+    {
+      "parameter": "E_gap_optical_Wemple1970",
+      "value": 3.2,
+      "unit": "eV",
+      "uncertainties": {
+        "convergence": 3.125,
+        "methodological": 0.0,
+        "intrinsic_dft": 0.0,
+        "model_form": 0.0,
+        "total": 3.125
+      },
+      "quality_tier": "Green",
+      "target_observable": "room-temperature optical absorption onset",
+      "phase": "tetragonal",
+      "exchangeability_group": "physical optical gap",
+      "physical_gap_evidence": true,
+      "relative_offset_from_optical_reference_percent": 0.0,
+      "provenance": {
+        "functional": "Experiment",
+        "method_class": "optical_experiment",
+        "source": "Di Domenico and Wemple optical BaTiO3 reference",
+        "doi": "",
+        "notes": "Empirical room-temperature optical-gap anchor used to type the physical target."
+      }
+    }
+  ],
+  "formal_band_gap_certificate": {
+    "parameter": "E_gap_optical_typed",
+    "value": 3.075,
+    "unit": "eV",
+    "uncertainties": {
+      "convergence": 3.125,
+      "methodological": 15.0,
+      "intrinsic_dft": 8.0,
+      "model_form": 8.0,
+      "total": 19.046
+    },
+    "quality_tier": "Red",
+    "target_observable": "room-temperature optical band gap",
+    "phase": "tetragonal",
+    "exchangeability_group": "physical optical-gap evidence only",
+    "non_exchangeability_rule": "Semilocal Kohn-Sham gaps are retained as Red-tier evidence but excluded from optical-gap fusion unless a calibrated reduction map is supplied.",
+    "provenance": {
+      "physical_evidence_record_ids": [
+        "TB_mBJ_ACSOmega2020",
+        "HSE06_proxy_Bilc2008",
+        "optical_Wemple1970"
+      ],
+      "excluded_semilocal_record_ids": [
+        "KS_LDA_Wahl2008",
+        "KS_PBE_Wahl2008"
+      ],
+      "pending_calibration": "Import Julien's HSE06 exact-exchange calibration study before using a calibrated-hybrid certificate as an Amber/Green prior."
+    }
+  },
+  "diagnostics": {
+    "physical_gap_fusion": {
+      "mean_eV": 3.075081967213115,
+      "formal_sigma_eV": 0.07682212795973759,
+      "method_spread_eV": 0.17913371790059218,
+      "total_sigma_eV": 0.19491159081273549
+    },
+    "naive_all_evidence_fusion_disallowed": {
+      "mean_eV": 2.3658646616541352,
+      "formal_sigma_eV": 0.052026598171447204,
+      "method_spread_eV": 0.6338580282681604,
+      "total_sigma_eV": 0.6359895965480042
+    },
+    "naive_fusion_warning": "The all-evidence fusion is intentionally reported only as a diagnostic anti-example because it mixes non-exchangeable Kohn-Sham, proxy, and optical target observables."
+  }
+}

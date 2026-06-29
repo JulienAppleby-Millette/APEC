@@ -1,0 +1,400 @@
+{
+  "metadata": {
+    "source_calculation": "bto_2x2x2_perfect",
+    "date_extracted": "2026-03-18",
+    "framework": "qff v2.1.3",
+    "n_certificates": 13,
+    "schema_note": "All uncertainty components are relative (%). model_form = 0 for directly computed properties. The first 12 certificates are from the production DFPT tensor calculation; E_gap_optical_typed is a promoted typed-observable case study."
+  },
+  "certificates": [
+    {
+      "parameter": "Z_star_Ti_mean",
+      "value": 6.8472,
+      "unit": "e",
+      "uncertainties": {
+        "convergence": 1.0,
+        "methodological": 3.0,
+        "intrinsic_dft": 2.0,
+        "model_form": 0.0,
+        "total": 3.74
+      },
+      "quality_tier": "Green",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "Z_star_Ti_zz",
+      "value": 6.20139,
+      "unit": "e",
+      "uncertainties": {
+        "convergence": 1.0,
+        "methodological": 3.0,
+        "intrinsic_dft": 2.0,
+        "model_form": 0.0,
+        "total": 3.74
+      },
+      "quality_tier": "Green",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "Z_star_O_zz_axial",
+      "value": -5.05,
+      "unit": "e",
+      "uncertainties": {
+        "convergence": 1.0,
+        "methodological": 3.0,
+        "intrinsic_dft": 2.0,
+        "model_form": 0.0,
+        "total": 3.74
+      },
+      "quality_tier": "Green",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "Z_star_Ba_mean",
+      "value": 2.7544,
+      "unit": "e",
+      "uncertainties": {
+        "convergence": 1.0,
+        "methodological": 3.0,
+        "intrinsic_dft": 1.0,
+        "model_form": 0.0,
+        "total": 3.32
+      },
+      "quality_tier": "Green",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "epsilon_inf_xx",
+      "value": 6.4918,
+      "unit": "dimensionless",
+      "uncertainties": {
+        "convergence": 1.5,
+        "methodological": 5.0,
+        "intrinsic_dft": 3.0,
+        "model_form": 0.0,
+        "total": 6.02
+      },
+      "quality_tier": "Amber",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "epsilon_inf_zz",
+      "value": 5.9642,
+      "unit": "dimensionless",
+      "uncertainties": {
+        "convergence": 1.5,
+        "methodological": 5.0,
+        "intrinsic_dft": 3.0,
+        "model_form": 0.0,
+        "total": 6.02
+      },
+      "quality_tier": "Amber",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "omega_soft",
+      "value": 172.0,
+      "unit": "cm-1",
+      "uncertainties": {
+        "convergence": 3.0,
+        "methodological": 8.0,
+        "intrinsic_dft": 5.0,
+        "model_form": 0.0,
+        "total": 9.9
+      },
+      "quality_tier": "Amber",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "omega_soft_z",
+      "value": 144.0,
+      "unit": "cm-1",
+      "uncertainties": {
+        "convergence": 3.0,
+        "methodological": 8.0,
+        "intrinsic_dft": 5.0,
+        "model_form": 0.0,
+        "total": 9.9
+      },
+      "quality_tier": "Amber",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "c_over_a",
+      "value": 1.011,
+      "unit": "dimensionless",
+      "uncertainties": {
+        "convergence": 0.2,
+        "methodological": 1.0,
+        "intrinsic_dft": 0.2,
+        "model_form": 0.0,
+        "total": 1.04
+      },
+      "quality_tier": "Green",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "a_lattice",
+      "value": 3.993,
+      "unit": "angstrom",
+      "uncertainties": {
+        "convergence": 0.2,
+        "methodological": 1.0,
+        "intrinsic_dft": 0.2,
+        "model_form": 0.0,
+        "total": 1.04
+      },
+      "quality_tier": "Green",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40
+      }
+    },
+    {
+      "parameter": "r_33_zz",
+      "value": 94.1,
+      "unit": "pm/V",
+      "uncertainties": {
+        "convergence": 6.5,
+        "methodological": 15.6,
+        "intrinsic_dft": 11.2,
+        "model_form": 17.9,
+        "total": 27.0
+      },
+      "quality_tier": "Red",
+      "convention": "all-zz",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40,
+        "model": "r33 = r_ref * (w_ref/w)^2 * (Z/Z_ref)^2 * (e_ref/e)",
+        "Z_star_ref": 7.16,
+        "eps_inf_ref": 6.5,
+        "omega_ref": 180.0,
+        "r33_ref_pm_V": 105.0,
+        "input_omega_soft": 171.949,
+        "input_Z_star": 6.20139,
+        "input_eps_inf": 5.9642
+      }
+    },
+    {
+      "parameter": "r_33_iso",
+      "value": 108.3,
+      "unit": "pm/V",
+      "uncertainties": {
+        "convergence": 6.5,
+        "methodological": 15.6,
+        "intrinsic_dft": 11.2,
+        "model_form": 17.9,
+        "total": 27.0
+      },
+      "quality_tier": "Red",
+      "convention": "all-isotropic",
+      "provenance": {
+        "code": "Quantum ESPRESSO",
+        "version": "7.5",
+        "functional": "PBE",
+        "pseudopotential": "PAW",
+        "phase": "tetragonal",
+        "energy_cutoff_Ry": 60,
+        "kpoint_mesh": [
+          6,
+          6,
+          6
+        ],
+        "supercell": "2x2x2",
+        "n_atoms": 40,
+        "model": "r33 = r_ref * (w_ref/w)^2 * (Z/Z_ref)^2 * (e_ref/e)",
+        "Z_star_ref": 7.16,
+        "eps_inf_ref": 6.5,
+        "omega_ref": 180.0,
+        "r33_ref_pm_V": 105.0,
+        "input_omega_soft": 171.949,
+        "input_Z_star": 6.8472,
+        "input_eps_inf": 6.3159
+      }
+    },
+    {
+      "parameter": "E_gap_optical_typed",
+      "value": 3.075,
+      "unit": "eV",
+      "uncertainties": {
+        "convergence": 3.125,
+        "methodological": 15.0,
+        "intrinsic_dft": 8.0,
+        "model_form": 8.0,
+        "total": 19.046
+      },
+      "quality_tier": "Red",
+      "target_observable": "room-temperature optical band gap",
+      "scope": "typed band-gap certificate case study; not extracted from the production DFPT tensor run",
+      "non_exchangeability_rule": "Semilocal Kohn-Sham gaps are retained as Red-tier evidence but excluded from optical-gap fusion unless a calibrated reduction map is supplied.",
+      "provenance": {
+        "phase": "tetragonal",
+        "physical_evidence_record_ids": [
+          "TB_mBJ_ACSOmega2020",
+          "HSE06_proxy_Bilc2008",
+          "optical_Wemple1970"
+        ],
+        "excluded_semilocal_record_ids": [
+          "KS_LDA_Wahl2008",
+          "KS_PBE_Wahl2008"
+        ],
+        "target_types": [
+          "Kohn-Sham eigenvalue gap",
+          "hybrid-functional band-gap proxy",
+          "room-temperature optical absorption onset"
+        ],
+        "calibration_status": "prior HSE06 exact-exchange calibration should be imported before using calibrated-hybrid values as higher-tier priors",
+        "artifact": "outputs/band_gap_certificate/band_gap_certificate_case_study.json"
+      }
+    }
+  ]
+}

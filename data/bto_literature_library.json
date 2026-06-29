@@ -1,0 +1,389 @@
+{
+  "metadata": {
+    "description": "BaTiO3 literature database with 2024-2025 additions",
+    "date": "2026-03-14T05:36:59.022619",
+    "papers_added": [
+      "Amounas et al., Physica B 674, 415536 (2024)",
+      "This work (QE 7.5 PBE/PAW DFPT)"
+    ],
+    "experimental_refs_added": [
+      "Reynaud et al., Commun. Mater. 6, 176 (2025)",
+      "Suceava et al., Adv. Mater. 37, e2507564 (2025)"
+    ]
+  },
+  "database": {
+    "omega_soft": {
+      "tetragonal": [
+        {
+          "value": 180,
+          "sigma": 10,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224"
+        },
+        {
+          "value": 175,
+          "sigma": 15,
+          "functional": "LDA",
+          "source": "Zhong PRB 1995",
+          "doi": "10.1103/PhysRevB.52.6301"
+        },
+        {
+          "value": 185,
+          "sigma": 12,
+          "functional": "PBE",
+          "source": "Tinte PRB 2003",
+          "doi": "10.1103/PhysRevB.67.064106"
+        },
+        {
+          "value": 178,
+          "sigma": 8,
+          "functional": "PBEsol",
+          "source": "PhononDB 2018",
+          "doi": "10.1038/sdata.2018.65"
+        },
+        {
+          "value": 172,
+          "sigma": 5,
+          "functional": "PBE",
+          "source": "This work (QE 7.5, 2x2x2)",
+          "doi": "",
+          "notes": "60 Ry cutoff, 6x6x6 k-points, PAW. Imaginary mode magnitude."
+        }
+      ],
+      "cubic": [
+        {
+          "value": -95,
+          "sigma": 20,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224",
+          "notes": "Imaginary (unstable)"
+        }
+      ]
+    },
+    "Z_star_Ti": {
+      "tetragonal": [
+        {
+          "value": 7.25,
+          "sigma": 0.3,
+          "functional": "LDA",
+          "source": "Zhong PRL 1994",
+          "doi": "10.1103/PhysRevLett.73.1861",
+          "component": "zz"
+        },
+        {
+          "value": 7.0,
+          "sigma": 0.4,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224",
+          "component": "zz"
+        },
+        {
+          "value": 7.5,
+          "sigma": 0.3,
+          "functional": "PBE",
+          "source": "Veithen PRB 2005",
+          "doi": "10.1103/PhysRevB.72.024102",
+          "component": "zz"
+        },
+        {
+          "value": 5.7,
+          "sigma": 0.2,
+          "functional": "LDA",
+          "source": "Zhong PRL 1994",
+          "doi": "10.1103/PhysRevLett.73.1861",
+          "component": "xx"
+        },
+        {
+          "value": 7.17,
+          "sigma": 0.2,
+          "functional": "PBE",
+          "source": "This work (QE 7.5, 2x2x2)",
+          "doi": "",
+          "component": "xx",
+          "notes": "60 Ry cutoff, 6x6x6 k-points, PAW."
+        }
+      ],
+      "cubic": [
+        {
+          "value": 7.16,
+          "sigma": 0.4,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224"
+        }
+      ]
+    },
+    "Z_star_O": {
+      "tetragonal": [
+        {
+          "value": -5.71,
+          "sigma": 0.3,
+          "functional": "LDA",
+          "source": "Zhong PRL 1994",
+          "doi": "10.1103/PhysRevLett.73.1861",
+          "component": "O_parallel"
+        },
+        {
+          "value": -2.11,
+          "sigma": 0.2,
+          "functional": "LDA",
+          "source": "Zhong PRL 1994",
+          "doi": "10.1103/PhysRevLett.73.1861",
+          "component": "O_perp"
+        }
+      ]
+    },
+    "Z_star_Ba": {
+      "tetragonal": [
+        {
+          "value": 2.74,
+          "sigma": 0.1,
+          "functional": "LDA",
+          "source": "Zhong PRL 1994",
+          "doi": "10.1103/PhysRevLett.73.1861"
+        }
+      ]
+    },
+    "epsilon_inf": {
+      "tetragonal": [
+        {
+          "value": 6.75,
+          "sigma": 0.2,
+          "functional": "LDA",
+          "source": "Veithen PRB 2005",
+          "doi": "10.1103/PhysRevB.72.024102",
+          "component": "zz"
+        },
+        {
+          "value": 6.5,
+          "sigma": 0.3,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224"
+        },
+        {
+          "value": 7.0,
+          "sigma": 0.25,
+          "functional": "PBE",
+          "source": "Tinte PRB 2003",
+          "doi": "10.1103/PhysRevB.67.064106"
+        },
+        {
+          "value": 5.96,
+          "sigma": 0.2,
+          "functional": "PBE",
+          "source": "This work (QE 7.5, 2x2x2)",
+          "doi": "",
+          "component": "zz",
+          "notes": "60 Ry cutoff, 6x6x6 k-points, PAW."
+        }
+      ],
+      "cubic": [
+        {
+          "value": 6.9,
+          "sigma": 0.3,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224"
+        }
+      ]
+    },
+    "P_s": {
+      "tetragonal": [
+        {
+          "value": 0.27,
+          "sigma": 0.03,
+          "functional": "LDA",
+          "source": "Zhong PRB 1995",
+          "doi": "10.1103/PhysRevB.52.6301",
+          "unit": "C/m^2"
+        },
+        {
+          "value": 0.26,
+          "sigma": 0.02,
+          "functional": "Expt",
+          "source": "Merz 1953",
+          "doi": "10.1103/PhysRev.91.513",
+          "unit": "C/m^2"
+        },
+        {
+          "value": 0.26,
+          "sigma": 0.01,
+          "functional": "PBEsol",
+          "source": "Amounas Physica B 2024",
+          "doi": "10.1016/j.physb.2023.415536",
+          "notes": "QE, USPP, PBEsol. Cross-functional spread: 0.18-0.38 C/m\u00b2"
+        },
+        {
+          "value": 0.3,
+          "sigma": 0.02,
+          "functional": "PBE",
+          "source": "Amounas Physica B 2024",
+          "doi": "10.1016/j.physb.2023.415536",
+          "notes": "QE, USPP, PBE. PBE overestimates P_s."
+        }
+      ]
+    },
+    "lattice_a": {
+      "tetragonal": [
+        {
+          "value": 3.94,
+          "sigma": 0.02,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998"
+        },
+        {
+          "value": 4.0,
+          "sigma": 0.02,
+          "functional": "PBE",
+          "source": "Tinte PRB 2003"
+        },
+        {
+          "value": 3.99,
+          "sigma": 0.01,
+          "functional": "PBEsol",
+          "source": "PhononDB 2018"
+        },
+        {
+          "value": 3.994,
+          "sigma": 0.005,
+          "functional": "Expt",
+          "source": "Kwei PRB 1993"
+        },
+        {
+          "value": 3.991,
+          "sigma": 0.005,
+          "functional": "PBEsol",
+          "source": "Amounas Physica B 2024",
+          "doi": "10.1016/j.physb.2023.415536",
+          "notes": "QE, USPP. Experimental structure used as starting point."
+        }
+      ]
+    },
+    "lattice_c": {
+      "tetragonal": [
+        {
+          "value": 4.036,
+          "sigma": 0.005,
+          "functional": "Expt",
+          "source": "Kwei PRB 1993"
+        },
+        {
+          "value": 4.02,
+          "sigma": 0.02,
+          "functional": "PBEsol",
+          "source": "PhononDB 2018"
+        }
+      ]
+    },
+    "E_gap": {
+      "tetragonal": [
+        {
+          "record_id": "KS_LDA_Wahl2008",
+          "value": 1.73,
+          "sigma": 0.10,
+          "unit": "eV",
+          "functional": "LDA",
+          "method_class": "semilocal_ks",
+          "target_observable": "Kohn-Sham eigenvalue gap",
+          "exchangeability_group": "semilocal Kohn-Sham gap, not directly exchangeable with optical gap",
+          "physical_gap_evidence": false,
+          "source": "Wahl PRB 2008 / semilocal BaTiO3 benchmark",
+          "doi": "10.1103/PhysRevB.78.104116",
+          "notes": "Numerically useful DFT output but Red-tier evidence for a physical optical or quasiparticle gap."
+        },
+        {
+          "record_id": "KS_PBE_Wahl2008",
+          "value": 1.80,
+          "sigma": 0.10,
+          "unit": "eV",
+          "functional": "PBE",
+          "method_class": "semilocal_ks",
+          "target_observable": "Kohn-Sham eigenvalue gap",
+          "exchangeability_group": "semilocal Kohn-Sham gap, not directly exchangeable with optical gap",
+          "physical_gap_evidence": false,
+          "source": "Wahl PRB 2008 / semilocal BaTiO3 benchmark",
+          "doi": "10.1103/PhysRevB.78.104116",
+          "notes": "Representative semilocal gap; benchmark-scale underestimation is encoded as methodological and intrinsic-DFT uncertainty."
+        },
+        {
+          "record_id": "TB_mBJ_ACSOmega2020",
+          "value": 2.78,
+          "sigma": 0.15,
+          "unit": "eV",
+          "functional": "TB-mBJ",
+          "method_class": "tb_mbj_proxy",
+          "target_observable": "screened-potential band-gap proxy",
+          "exchangeability_group": "band-gap proxy, closer to physical gap but still model dependent",
+          "physical_gap_evidence": true,
+          "source": "Y-doped BaTiO3 ACS Omega 2020",
+          "doi": "10.1021/acsomega.0c01638",
+          "notes": "Retained as proxy physical-gap evidence; not fused with semilocal Kohn-Sham gaps."
+        },
+        {
+          "record_id": "HSE06_proxy_Bilc2008",
+          "value": 3.10,
+          "sigma": 0.20,
+          "unit": "eV",
+          "functional": "HSE06",
+          "method_class": "hybrid_ks_proxy",
+          "target_observable": "hybrid-functional band-gap proxy",
+          "exchangeability_group": "hybrid proxy for physical gap; calibration metadata required before high-tier use",
+          "physical_gap_evidence": true,
+          "source": "Hybrid-functional BaTiO3 literature proxy",
+          "doi": "10.1103/PhysRevB.77.165107",
+          "notes": "Placeholder for prior HSE06 exact-exchange calibration work; calibrated parameters are not yet imported."
+        },
+        {
+          "record_id": "optical_Wemple1970",
+          "value": 3.20,
+          "sigma": 0.10,
+          "unit": "eV",
+          "functional": "Experiment",
+          "method_class": "optical_experiment",
+          "target_observable": "room-temperature optical absorption onset",
+          "exchangeability_group": "physical optical gap",
+          "physical_gap_evidence": true,
+          "source": "Di Domenico and Wemple optical BaTiO3 reference",
+          "doi": "",
+          "notes": "Empirical room-temperature optical-gap anchor used to type the physical target."
+        }
+      ]
+    }
+  },
+  "experimental_references": [
+    {
+      "parameter": "r_eff",
+      "value": 550,
+      "uncertainty": 50,
+      "unit": "pm/V",
+      "source": "Reynaud et al., Commun. Mater. 6, 176 (2025)",
+      "doi": "10.1038/s43246-025-00908-x",
+      "conditions": "150 nm film on Si, MBE, room temperature, a-axis normalized",
+      "notes": "Effective coefficient, domain-averaged. Depends on a-axis volume fraction."
+    },
+    {
+      "parameter": "r_33",
+      "value": 2516,
+      "uncertainty": 100,
+      "unit": "pm/V",
+      "source": "Suceava et al., Adv. Mater. 37, e2507564 (2025)",
+      "doi": "10.1002/adma.202507564",
+      "conditions": "Strained BTO thin film, 5 K, monoclinic metastable phase",
+      "notes": "Cryogenic measurement. Metastable phase stabilized by strain."
+    },
+    {
+      "parameter": "r_33",
+      "value": 105,
+      "uncertainty": 15,
+      "unit": "pm/V",
+      "source": "Zgonik et al., PRB 50, 5941 (1994)",
+      "doi": "10.1103/PhysRevB.50.5941",
+      "conditions": "Bulk single crystal, room temperature",
+      "notes": "Standard room-temperature reference value."
+    }
+  ]
+}
