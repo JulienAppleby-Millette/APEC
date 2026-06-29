@@ -210,14 +210,14 @@ Stage & Quantity & Value & Rel.\ uncertainty \\
 \midrule
 DFT & $\omega_{\mathrm{soft}}$ & 172 cm$^{-1}$ & 10\% \\
 $\downarrow$ ($\times 2$ amplification) & & & \\
-Property (single calc) & $r_{33}$ ($zz$) & 94 pm/V & 27\% \\
-Property (library-fused) & $r_{33}$ ($zz$) & 94 pm/V & 20\% \\
+Property (single calc) & $r_{33}$ ($zz$) & 94 pm/V & 28\% \\
+Property (library-fused) & $r_{33}$ ($zz$) & 94 pm/V & 24\% \\
 \midrule
 \multicolumn{4}{l}{\textit{Downstream stages to be certified:}} \\
 $\downarrow$ (microstructure averaging) & & & \\
-Effective & $r_{\mathrm{eff}}$ & $\sim$40 pm/V & $\sim$22\% \\
+Effective & $r_{\mathrm{eff}}$ & $\sim$40 pm/V & $\sim$26\% \\
 $\downarrow$ (device model) & & & \\
-Device & $V_\pi L$ & $\sim$2.5 V$\cdot$cm & $\sim$24\% \\
+Device & $V_\pi L$ & $\sim$2.5 V$\cdot$cm & $\sim$27\% \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -561,9 +561,12 @@ Experiment & $\sim$180 & Tetragonal & Lines \& Glass \cite{Lines2001} \\
 Values are order-of-magnitude estimates informed by published convergence
 behavior \cite{Ghosez1999,Wahl2008}; they have not been systematically
 fitted and should not be used quantitatively without validation. $A$ and $B$
-are prefactors for the cutoff and $k$-point models (Eqs.~3--4 of the main
-text), $E_0$ is the cutoff decay constant, and $\alpha$ is the $k$-point
-power law exponent.}
+are prefactors for the cutoff and $k$-point models defined in the main text
+(Eqs.~20--21), $E_0$ is the cutoff
+decay constant, and $\alpha$ is the $k$-point power law exponent. These
+parameters are not used as fitted soft-mode curve coefficients in
+Fig.~\ref{fig:omega_convergence}; that figure is a heuristic visual
+interpolant based on Table~\ref{tab:si_heuristic}.}
 \label{tab:si_convergence_params}
 \begin{tabular}{lcccc}
 \toprule
@@ -706,18 +709,21 @@ certify transferability across materials families.
 \label{sec:si_library}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Table~\ref{tab:si_full_library} lists all 31 entries in the BaTiO$_3$
+Table~\ref{tab:si_full_library} lists the BaTiO$_3$
 posterior certificate library, with phase and tensor-component metadata
-for each entry. This compilation spans DFPT studies from 1994 to 2025 and
-forms the basis for the weighted averages and phase-filtered analysis in
-the main text.
+for each entry, together with derived tensor-provenance rows needed to
+reproduce the final phase-filtered averages. This compilation spans DFPT
+studies from 1994 to 2025 and forms the basis for the weighted averages and
+phase-filtered analysis in the main text.
 
 \begin{table}[ht]
 \centering
 \footnotesize
-\caption{Complete BaTiO$_3$ literature library (31 entries). Phase: C = cubic,
-T = tetragonal. Component: zz, xx, iso (isotropic average), or --- (scalar).
-Uncertainties are one standard deviation.}
+\caption{Complete BaTiO$_3$ literature library and tensor-provenance rows.
+Phase: C = cubic, T = tetragonal. Component: zz, xx, iso (isotropic average),
+or --- (scalar). Uncertainties are one standard deviation. Derived rows are
+included for auditability and should not be counted as independent source
+entries in inverse-variance fusion.}
 \label{tab:si_full_library}
 \begin{tabular}{llcccll}
 \toprule
@@ -730,6 +736,8 @@ $Z^*_{\mathrm{Ti}}$ & T & zz & 7.00 & 0.40 & LDA & Ghosez 1998 \\
 $Z^*_{\mathrm{Ti}}$ & T & zz & 7.50 & 0.30 & PBE & Veithen 2005 \\
 $Z^*_{\mathrm{Ti}}$ & T & xx & 5.70 & 0.20 & LDA & Zhong 1994 \\
 $Z^*_{\mathrm{Ti}}$ & T & xx & 7.17 & 0.20 & PBE & This work \\
+$Z^*_{\mathrm{Ti}}$ & T & zz & 6.20 & 0.20 & PBE & This work \\
+$Z^*_{\mathrm{Ti}}$ & T & iso & 6.85 & 0.20 & PBE & This work (derived) \\
 \midrule
 \multicolumn{7}{l}{\textit{Dielectric constant $\varepsilon^\infty$}} \\
 $\varepsilon^\infty$ & C & iso & 6.90 & 0.30 & LDA & Ghosez 1998 \\
@@ -816,8 +824,8 @@ $\omega_{\mathrm{soft},z}$ = 144~cm$^{-1}$ & & 3.00 & 8.00 & 5.00 & 0 & 9.90 & A
 $c/a$ = 1.011 & & 0.20 & 1.00 & 0.20 & 0 & 1.04 & Green \\
 $a$ = 3.993~\AA & & 0.20 & 1.00 & 0.20 & 0 & 1.04 & Green \\
 \midrule
-$r_{33}$ ($zz$) = 94~pm/V & & 6.50 & 15.6 & 11.2 & 17.9 & 27.0 & Red \\
-$r_{33}$ (iso) = 108~pm/V & & 6.50 & 15.6 & 11.2 & 17.9 & 27.0 & Red \\
+$r_{33}$ ($zz$) = 94~pm/V & & 6.50 & 17.8 & 11.2 & 17.9 & 28.4 & Red \\
+$r_{33}$ (iso) = 108~pm/V & & 6.50 & 17.8 & 11.2 & 17.9 & 28.4 & Red \\
 \midrule
 $E_g$ optical (typed) = 3.08~eV & & 3.13 & 15.0 & 8.0 & 8.0 & 19.0 & Red \\
 \bottomrule
@@ -857,6 +865,19 @@ This contribution is held fixed across the $zz$ and isotropic conventions so
 that changes in the reported $r_{33}$ values reflect the phase and tensor
 inputs rather than a change in the phenomenological model floor.
 
+The methodological component of the derived $r_{33}$ certificate is propagated
+from the input line items using the same Jacobian as the convergence and
+intrinsic-DFT components:
+\[
+\sigma_{\meth}(r_{33}) =
+\sqrt{(2\times 8.0\%)^2 + (2\times 3.0\%)^2 + (5.0\%)^2}
+=17.8\%.
+\]
+Together with $\sigma_\conv=6.5\%$, $\sigma_{\mathrm{DFT}}=11.2\%$, and
+$\sigma_{\mathrm{model}}=17.9\%$, this gives
+$\sigma_{\mathrm{total}}=28.4\%$ for both the $zz$ and isotropic single
+calculation certificates.
+
 
 \subsection{S5.3. Phase-Correction Arithmetic}
 
@@ -892,6 +913,17 @@ $\varepsilon_{\mathrm{ref}} = 6.5$.
     $\omega = 172$, $Z^* = 6.85$ (mean), $\varepsilon = 6.32$ (mean). \\
     $r_{33} = 108$~pm/V---matches the library isotropic row.
 \end{enumerate}
+
+The present certificate uses $\omega_{\mathrm{soft}}=172$~cm$^{-1}$ as the
+calibrated soft-mode descriptor for the bulk reference comparison. A separate
+raw DFPT entry, $\omega_{\mathrm{soft},z}=144$~cm$^{-1}$, is retained in the
+certificate table as mode-provenance information rather than substituted into
+the calibrated $r_{33}$ rows. If the 144~cm$^{-1}$ mode were used in the
+$zz$ arithmetic with the same $Z^*$ and $\varepsilon^\infty$ values, the
+central $zz$ estimate would shift to approximately 134~pm/V. This sensitivity
+is precisely why future certificate schemas should include explicit
+phonon-mode symmetry and eigenvector metadata for derived electro-optic
+certificates.
 
 The consistency between single-calculation and library-fused values, when
 the tensor convention is held fixed, validates the extraction pipeline and

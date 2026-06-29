@@ -293,10 +293,10 @@
       "unit": "pm/V",
       "uncertainties": {
         "convergence": 6.5,
-        "methodological": 15.6,
+        "methodological": 17.8,
         "intrinsic_dft": 11.2,
         "model_form": 17.9,
-        "total": 27.0
+        "total": 28.4
       },
       "quality_tier": "Red",
       "convention": "all-zz",
@@ -320,6 +320,8 @@
         "omega_ref": 180.0,
         "r33_ref_pm_V": 105.0,
         "input_omega_soft": 171.949,
+        "phonon_mode_symmetry": "effective soft-mode descriptor used for calibrated bulk r33",
+        "mode_assignment_status": "omega_soft_z tracked separately; symmetry-resolved provenance required for future tensor certificates",
         "input_Z_star": 6.20139,
         "input_eps_inf": 5.9642
       }
@@ -330,10 +332,10 @@
       "unit": "pm/V",
       "uncertainties": {
         "convergence": 6.5,
-        "methodological": 15.6,
+        "methodological": 17.8,
         "intrinsic_dft": 11.2,
         "model_form": 17.9,
-        "total": 27.0
+        "total": 28.4
       },
       "quality_tier": "Red",
       "convention": "all-isotropic",
@@ -357,6 +359,8 @@
         "omega_ref": 180.0,
         "r33_ref_pm_V": 105.0,
         "input_omega_soft": 171.949,
+        "phonon_mode_symmetry": "effective soft-mode descriptor used for calibrated bulk r33",
+        "mode_assignment_status": "omega_soft_z tracked separately; symmetry-resolved provenance required for future tensor certificates",
         "input_Z_star": 6.8472,
         "input_eps_inf": 6.3159
       }

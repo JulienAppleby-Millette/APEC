@@ -103,7 +103,38 @@
           "source": "This work (QE 7.5, 2x2x2)",
           "doi": "",
           "component": "xx",
+          "include_in_final_fusion": true,
+          "diagnostic_only": false,
+          "derived_from": null,
           "notes": "60 Ry cutoff, 6x6x6 k-points, PAW."
+        },
+        {
+          "value": 6.2,
+          "sigma": 0.2,
+          "functional": "PBE",
+          "source": "This work (QE 7.5, 2x2x2)",
+          "doi": "",
+          "component": "zz",
+          "include_in_final_fusion": true,
+          "diagnostic_only": false,
+          "derived_from": null,
+          "notes": "60 Ry cutoff, 6x6x6 k-points, PAW. Missing tensor-provenance row added during APEC consistency revision."
+        },
+        {
+          "value": 6.85,
+          "sigma": 0.2,
+          "functional": "PBE",
+          "source": "This work (derived tensor average)",
+          "doi": "",
+          "component": "iso",
+          "include_in_final_fusion": true,
+          "diagnostic_only": false,
+          "independent_source_entry": false,
+          "derived_from": [
+            "Z_star_Ti This work xx = 7.17",
+            "Z_star_Ti This work zz = 6.20"
+          ],
+          "notes": "Derived tensor average (2*7.17 + 6.20)/3 = 6.85; retained for auditability, not counted as an independent calculation."
         }
       ],
       "cubic": [

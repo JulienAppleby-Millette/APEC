@@ -247,9 +247,9 @@ def regenerate_preview() -> None:
         fontsize=6.7,
     )
     ax.set_xlabel(r"Relative uncertainty, $\sigma/|P|$ (%)")
-    ax.set_xlim(0, 30)
+    ax.set_xlim(0, 35)
     ax.set_ylim(len(certificates) - 0.5, -1.9)
-    ax.legend(loc="upper right", framealpha=0.95, ncol=2)
+    ax.legend(loc="center right", framealpha=0.95, ncol=2)
     ax.set_title("a) Certificate uncertainty decomposition", loc="left", fontweight="bold")
 
     ax_json.axis("off")

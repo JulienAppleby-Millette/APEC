@@ -1,10 +1,12 @@
 """
 Generate soft-mode frequency convergence figure for Paper 1.
 
-Uses the parametric convergence models (Eqs. in Appendix B) anchored to
-the actual QE calculation point (60 Ry, 6x6x6, omega = 172 cm^-1).
+Uses heuristic visual interpolants anchored to the actual QE calculation point
+(60 Ry, 6x6x6, omega = 172 cm^-1) and constrained to match the class-level
+DFPT response-property uncertainty ranges in the Supplemental Information.
 
-The curves are model-based illustrations, not raw convergence data.
+The curves are not raw convergence data and are not fitted from the transferable
+Table S3 convergence parameters.
 """
 from pathlib import Path
 

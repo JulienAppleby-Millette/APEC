@@ -121,7 +121,7 @@ def main() -> None:
     print()
     print("Key findings:")
     print("  1. The unpartitioned library inflates r33 because cubic Z* enters.")
-    print("  2. Phase-filtered isotropic inputs give 108 pm/V, within 3% of bulk experiment.")
+    print("  2. Phase-filtered isotropic inputs give 108 pm/V, matching the calibrated bulk scale.")
     print("  3. Single-calculation values match the library when tensor convention is fixed.")
     print("  4. The 94 vs 108 pm/V spread quantifies tensor-averaging sensitivity.")
 
