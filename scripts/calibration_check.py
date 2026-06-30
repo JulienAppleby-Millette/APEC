@@ -2,7 +2,7 @@
 """
 Calibration check for the BaTiO3 posterior-certificate literature library.
 
-This script implements the first lightweight version of the validation test
+This script implements the first lightweight version of the calibration check
 suggested during manuscript review:
 
 1. Partition literature entries by property, phase, and tensor component.
@@ -152,19 +152,25 @@ def summarize(rows: list[dict], experimental_refs: list[dict]) -> dict:
             "mean_reduced_chi2": float(np.mean([r["full_group_reduced_chi2"] for r in group_rows])),
         }
 
-    # This validation point is the bulk room-temperature comparison reported in
-    # the manuscript's Table 5. Thin-film values are deliberately excluded here:
-    # they include domain, strain, and device effects outside the bulk model.
-    bulk_r33_prediction = {"value": 108.0, "sigma": 22.0, "label": "library_fused_bulk_r33_iso"}
+    # This is an internal consistency check, not an independent validation:
+    # the soft-mode expression is anchored to r_ref = 105 pm/V (Zgonik), so
+    # the fused isotropic estimate is expected to recover the bulk scale.
+    # Thin-film values are deliberately excluded here because they include
+    # domain, strain, and device effects outside the bulk model.
+    bulk_r33_prediction = {
+        "value": 108.0,
+        "sigma": 22.0,
+        "label": "library_fused_bulk_r33_iso_anchored",
+    }
     bulk_refs = [
         ref
         for ref in experimental_refs
         if ref.get("parameter") == "r_33" and "bulk" in ref.get("conditions", "").lower()
     ]
-    validation = []
+    consistency_checks = []
     for ref in bulk_refs:
         denom = math.sqrt(bulk_r33_prediction["sigma"] ** 2 + ref["uncertainty"] ** 2)
-        validation.append(
+        consistency_checks.append(
             {
                 "prediction": bulk_r33_prediction["label"],
                 "predicted_value": bulk_r33_prediction["value"],
@@ -188,7 +194,7 @@ def summarize(rows: list[dict], experimental_refs: list[dict]) -> dict:
         "expected_abs_z_lt_1p96": normal.cdf(1.96) - normal.cdf(-1.96),
         "max_abs_z": float(np.max(abs_z)) if len(z) else None,
         "groups": group_summary,
-        "experimental_validation": validation,
+        "anchored_consistency_check": consistency_checks,
     }
 
 
@@ -275,10 +281,11 @@ def main() -> None:
         f"{summary['coverage_abs_z_lt_1p96']:.3f} "
         f"(expected {summary['expected_abs_z_lt_1p96']:.3f})"
     )
-    for validation in summary["experimental_validation"]:
+    for validation in summary["anchored_consistency_check"]:
         print(
-            "  bulk r33 validation z: "
-            f"{validation['z_score']:.3f} vs {validation['source']}"
+            "  bulk r33 anchored-consistency z: "
+            f"{validation['z_score']:.3f} vs {validation['source']} "
+            "(internal check; not an independent validation)"
         )
     print(f"  wrote: {OUT_DIR / 'certificate_library_calibration.json'}")
     print(f"  wrote: {FIG_DIR / 'fig3_calibration_check.pdf'}")

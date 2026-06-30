@@ -14,7 +14,7 @@
       "correlation_policy": "floor-aware effective-sample-size fusion",
       "effective_sample_size_treatment": "methodological scatter may average down; intrinsic_dft and model_form are held fixed as common-mode terms for semilocal library fusion",
       "optimistic_effective_sample_size_ceiling": 5,
-      "irreducible_floor_pct": 22.1
+      "model_conditional_floor_pct_approx": 22.0
     }
   },
   "database": {

@@ -710,23 +710,46 @@ Coverage, $|z|<1.96$ & 95\% & 95\% \\
 \end{tabular}
 \end{center}
 
+\begin{table}
+\caption{Per-subset leave-one-out calibration of the BaTiO$_3$ input library.
+Each subset is a (property, phase, tensor-component) group containing at least
+three exchangeable computational entries. The $z$-scores are standardized
+residuals against the inverse-variance leave-one-out prediction,
+$z_i = (P_i - P_{\mathrm{LOO}})/\sqrt{\sigma_i^2 + \sigma_{\mathrm{LOO}}^2}$.
+The pooled RMS lies within one sampling spread ($1/\sqrt{2n}\approx0.16$) of
+unity, but the per-subset values bracket it from both sides, indicating mild
+bidirectional rather than uniform miscalibration.}
+\label{tab:loo_calibration}
+\begin{tabular}{lcccc}
+\toprule
+Subset & $n$ & mean $z$ & RMS $z$ & max $|z|$ \\
+\midrule
+$\omega_{\mathrm{soft}}$, tet., iso. & 5 & $+0.11$ & 0.65 & 1.04 \\
+$Z^*_{\mathrm{Ti}}$, cubic, iso.     & 4 & $-0.05$ & 0.62 & 0.93 \\
+$\varepsilon^\infty$, tet., iso.     & 3 & $-0.03$ & 0.87 & 1.09 \\
+$P_s$, tet., iso.                    & 3 & $+0.08$ & 1.37 & 1.76 \\
+$a$, tet., iso.                      & 4 & $-0.25$ & 1.35 & 2.50 \\
+\midrule
+Pooled                               & 19 & $-0.03$ & 0.99 & 2.50 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 The five tested groups are $P_s$ in the tetragonal scalar/isotropic subset,
 $Z^*_{\mathrm{Ti}}$ in the cubic-reference isotropic subset,
 $\varepsilon^\infty$ in the tetragonal scalar/isotropic subset, tetragonal
-lattice parameter $a$, and tetragonal soft-mode frequency. The pooled
-statistics are close to the standard-normal expectation, with RMS $z=0.99$
-and reduced $\chi^2=0.99$. For $n=19$ residuals, the sampling spread of the
-RMS statistic is approximately $1/\sqrt{2n}=0.16$, so the observed RMS is statistically
-indistinguishable from values near unity. The room-temperature bulk experimental comparison for the
-library-fused isotropic $r_{33}$ gives $z=0.11$ relative to the
+lattice parameter $a$, and tetragonal soft-mode frequency. Table~\ref{tab:loo_calibration}
+shows that the pooled statistics are close to the standard-normal expectation,
+with RMS $z=0.99$ and reduced $\chi^2=0.99$, while the per-subset RMS values
+bracket unity from both sides. The room-temperature bulk anchored-consistency
+check for the library-fused isotropic $r_{33}$ gives $z=0.11$ relative to the
 Zgonik et al.\ \cite{Zgonik1994} reference value, using the combined library and experimental
-uncertainties. These results support the claim that the present certificate
-library is not grossly miscalibrated at the scale probed by available data,
-but they do not certify transferability across broader material classes.
-In the same sense as property certificates, this validation result has its own
-scope and quality tier: it is strong enough to rule out obvious
-miscalibration in the BaTiO$_3$ library, but the sample size is too small to
-certify transferability across materials families.
+uncertainties. Because the soft-mode expression is anchored to this bulk
+reference, this comparison is an internal consistency check rather than an
+independent validation of the absolute electro-optic scale. These results
+support the claim that the present certificate library is not grossly
+miscalibrated at the scale probed by available data, but they do not certify
+transferability across broader material classes.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

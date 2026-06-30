@@ -75,6 +75,10 @@ python scripts/band_gap_certificate_case_study.py
 
 The scripts are self-contained and do not require any external development package.
 
+The `framework` and `schema` fields in the JSON artifacts are provenance
+identifiers from the internal certificate-generation pipeline and impose no
+runtime dependency; all scripts in this repository are self-contained.
+
 ## Generated Artifacts
 
 `figures/fig2_composite.pdf` and `figures/fig2_composite.png` are the canonical

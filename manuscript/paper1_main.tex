@@ -143,7 +143,7 @@ phonon, and derived electro-optic properties.
 We demonstrate phase-aware fusion of heterogeneous data sources and quantify the resulting reduction in uncertainty. 
 We assign to these values an expected quality tier: green for well-converged ground-state properties, amber for 
 response properties, and red for the derived Pockels coefficient subject 
-to both propagated uncertainty and model-form error. The BaTiO$_3$ case study serves both as a validation of the certificate framework and as an illustration of how uncertainty-aware data aggregation can enhance the reliability of computational predictions of materials properties. 
+to both propagated uncertainty and model-form error. The BaTiO$_3$ case study serves as a controlled demonstration of the certificate framework and illustrates how uncertainty-aware data aggregation can enhance the reliability of computational predictions of materials properties.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -290,7 +290,7 @@ The soft-mode frequency is the most convergence-sensitive input to the
 Pockels coefficient, requiring significantly higher cutoff energies and 
 denser $k$-point meshes than structural properties. 
 Figure~\ref{fig:omega_convergence} shows heuristic response-property convergence estimates for $\omega_{\mathrm{soft}}$ 
-based on the ranges summarized in Supplemental Material Table~S4, shown as visual interpolants rather than as explicit DFPT convergence calculations at every point. The soft-mode frequency 
+based on the ranges summarized in Supplemental Material Table~S4, shown as visual interpolants rather than as explicit DFPT convergence calculations at every point. Only the starred points correspond to evaluations at the production-calculation parameters; the connecting curves are guides constrained to reproduce the class-level ranges of Supplemental Material Table~S4 and are not point-by-point DFPT results. The soft-mode frequency
 converges more slowly than total energy or forces, requiring $\Ecut > 80$~Ry 
 for $<2\%$ error and a $k$-point mesh of $8\times8\times8$ or denser. At 
 the parameters used in our production calculation (60~Ry, $6\times6\times6$), the 
@@ -302,9 +302,7 @@ Supplemental Material Table~S4.
 \centering
 \includegraphics[width=\textwidth]{fig1_omega_convergence.pdf}
 \caption{Heuristic convergence estimates for the soft-mode frequency in 
-BaTiO$_3$. Curves are visual interpolants constrained to reproduce the class-level DFPT uncertainty ranges summarized in Supplemental Material Table~S4; they are not explicit DFPT convergence calculations at every point and are not fitted from the preliminary transferable convergence parameters in Supplemental Material Table~S3. Stars mark the  
-evaluation at the production calculation parameters (PBE/PAW, 60~Ry, $6^3$ 
-$k$-points). The green band indicates the $<2\%$ convergence region. }
+BaTiO$_3$. Curves are visual interpolants constrained to reproduce the class-level DFPT uncertainty ranges summarized in Supplemental Material Table~S4; they are not explicit DFPT convergence calculations at every point and are not fitted from the preliminary transferable convergence parameters in Supplemental Material Table~S3. Only the starred points correspond to evaluations at the production-calculation parameters (PBE/PAW, 60~Ry, $6^3$ $k$-points). The green band indicates the $<2\%$ convergence region. }
 \label{fig:omega_convergence}
 \end{figure*}
 
@@ -516,10 +514,7 @@ $\pm 27$ to $\pm 22$~pm/V for the $zz$ convention, from $\pm 31$ to
 $\pm 25$~pm/V for the isotropic convention. 
 
 Data fusion does not reduce the 
-model-form contribution ($\sigma_{\mathrm{model}} = 17.9\%$) or the common-mode intrinsic-DFT contribution ($\sigma_{\mathrm{DFT}} = 11.2\%$), which together with convergence set an 
-irreducible floor of $\sqrt{6.5^2+11.2^2+17.9^2}=22.1\%$ on the achievable $r_{33}$ uncertainty within the present semilocal-DFT, 
-soft-mode approximation. Further improvement would require either  a more accurate 
-phenomenological description or full \emph{ab initio} electro-optic tensor calculation. 
+model-form contribution ($\sigma_{\mathrm{model}} = 17.9\%$) or the common-mode intrinsic-DFT contribution ($\sigma_{\mathrm{DFT}} = 11.2\%$), which together with convergence set a floor of $\sqrt{6.5^2+11.2^2+17.9^2}\approx 22\%$ on the achievable $r_{33}$ uncertainty within the present semilocal-DFT, soft-mode approximation. This floor is conditional on two referenced point estimates that are promoted to standard deviations---the nominal 15\% soft-mode approximation error and the propagated intrinsic-DFT term---and should be read as a model-form-limited estimate rather than as a sharply determined bound. Reducing it would require a more accurate phenomenological description or full \emph{ab initio} electro-optic tensor calculation.
 The reduction in uncertainty upon fusion from 28\% to approximately 24\%  illustrates how  the 
 certificate framework can be leveraged to not merely \emph{track} uncertainty but actively 
 \emph{reduce} it through principled data combination, while making clear which uncertainty components cannot be averaged away.
@@ -543,7 +538,26 @@ the central estimate from 94 to approximately 134~pm/V. This alternative is
 not adopted in the reported certificate, but it illustrates why mode
 provenance is retained explicitly.
 
-A limited leave-one-out calibration test of the phase/component-consistent subsets of the BaTiO$_3$ literature library is presented in Supplemental Material Section~S3.7. Across 19 residuals in five computational groups, the pooled residuals give mean $z=-0.03$, RMS $z=0.99$, reduced $\chi^2=0.99$, 68\% coverage for $|z|<1$, and 95\% coverage for $|z|<1.96$. The expected sampling spread of the RMS statistic is approximately $1/\sqrt{2n}=0.16$, so these values rule out gross miscalibration but do not distinguish fine calibration differences. This is an Amber-level smoke test for gross over- or under-confidence in the BaTiO$_3$ input library, not a broad calibration benchmark across materials or a direct empirical validation of the derived Red-tier $r_{33}$ certificate.
+A limited leave-one-out calibration test of the phase/component-consistent
+subsets of the BaTiO$_3$ literature library is presented in Supplemental
+Material Section~S3.7. Across 19 residuals in five computational subsets, the
+pooled residuals give mean $z=-0.03$, RMS $z=0.99$, reduced $\chi^2=0.99$,
+68\% coverage for $|z|<1$, and 95\% coverage for $|z|<1.96$. The expected
+sampling spread of the RMS statistic is approximately $1/\sqrt{2n}=0.16$, so
+these values rule out gross miscalibration but do not distinguish fine
+calibration differences. The pooled value also masks subset-level structure
+(Supplemental Material Table~S5): the soft-mode and cubic $Z^*_{\mathrm{Ti}}$
+subsets are mildly over-dispersed (assigned $\sigma$ wider than the observed
+scatter), while the lattice-constant and $P_s$ subsets are mildly
+under-dispersed, so the pooled RMS near unity reflects partial cancellation of
+opposite-sign deviations rather than uniform per-subset calibration. Because the
+standardized residuals are computed against the library's own assigned
+uncertainties, this test certifies internal consistency between assigned
+$\sigma$ values and observed cross-source scatter; it is not an external
+validation against independent reference data. It is therefore an Amber-level
+smoke test for gross over- or under-confidence in the BaTiO$_3$ input library,
+not a broad calibration benchmark across materials or a direct empirical
+validation of the derived Red-tier $r_{33}$ certificate.
 
 
 
@@ -669,10 +683,6 @@ tier ($\sigma_{\mathrm{total}} = 28.4\%$) even when the underlying DFT-calculate
 properties are Green or Amber. Phase-aware partitioning of literature 
 data resolved inconsistencies arising from mixing cubic and tetragonal data and reduced the uncertainty in the library-fused electro-optic response to approximately 24\%, bounded by a $\sim$22\% floor within the present carried-discrepancy semilocal-DFT soft-mode model. Although demonstrated here for the soft-mode electro-optic response of BaTiO$_3$, the method is independent of the underlying electronic-structure method or property. More broadly, APECs provide a  basis for uncertainty-aware computational materials science, allowing computed properties to be compared, combined, and used systematically in databases, multistage models and data-driven materials design.
 
-%The thin-film  discrepancy ($5$--$22\times$ above bulk) quantifies the modeling gap that microstructure and strain stages of the propagation chain must close.
-
-%Several open problems define the path forward. First, the heuristic cross-functional covariance estimate presented here (Section~\ref{sec:decomposition}) should be validated against empirical convergence-level covariance data from systematic parameter sweeps; comparing the two will establish whether the partial cancellation observed in BaTiO$_3$ is transferable to other perovskites or is material-specific. Second, the surrogate convergence models (Supplemental Material, Table~S3) require systematic fitting against dedicated benchmark datasets across material classes. Third, extending the propagation chain from bulk DFT through domain microstructure, strain coupling, and device geometry would connect the certificate framework to multi-physics digital twin pipelines. Fourth, quantifying whether inverse-variance loss weighting and certificate-derived aleatoric noise floors improve generalization in graph neural network potentials trained on heterogeneous database aggregates would establish the practical value of certificate-aware machine learning for materials prediction.
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods: A Posteriori Error Certificates}
 \label{sec:methods}
@@ -759,7 +769,7 @@ a functional that overbinds will systematically stiffen phonons, coupling
 $\epsilon_\meth$ to $\epsilon_{\mathrm{DFT}}$. We proceed with the 
 independence assumption as a zeroth-order baseline but can estimate its 
 impact from existing data. Comparing LDA and PBE values in the compiled literature 
-library (Supplemental Material Table~S5), the three quantities entering the soft-mode expression for $r_{33}$ shift systematically with the choice of functional. PBE gives slightly larger Born effective charges ($+5\%$) and dielectric constants ($+8\%$) than LDA, while the soft-mode frequency changes comparatively little.  Because contributions from $Z^*$ and $\varepsilon^\infty$ enter $r_{33} \propto 
+library (Supplemental Material Table~S6), the three quantities entering the soft-mode expression for $r_{33}$ shift systematically with the choice of functional. PBE gives slightly larger Born effective charges ($+5\%$) and dielectric constants ($+8\%$) than LDA, while the soft-mode frequency changes comparatively little.  Because contributions from $Z^*$ and $\varepsilon^\infty$ enter $r_{33} \propto
 Z^{*2}/(\varepsilon \omega^2)$ with opposite signs, these shifts partially cancel, reducing the net variation in the derived property: the net cross-functional shift 
 in $r_{33}$ is only $\sim$2\%, compared to the $\sim$13\% expected from the independent 
 quadrature of the individual uncertainties. 
@@ -1067,8 +1077,6 @@ quality and can serve as diagnostic indicators. Slow SCF convergence, unusually 
 
 We acknowledge computational resources from the Digital Research Alliance of 
 Canada and the University of Victoria. I.P. acknowledges support from NSERC and the  Consortium on Integrated Quantum Photonics. TB acknowledges support from the Canada Research Chairs Program and NSERC. 
-
-%This research was undertaken, in part, thanks to funding from the Canada Research Chairs Program (CRC-2021-00257). This work has been supported in part by the Natural Sciences and Engineering Research Council of Canada (NSERC) under grants RGPIN-2023-05510 and DGECR-2023-00026. \textcolor{red}{We can adjust to match}
 
 \end{acknowledgments}
 

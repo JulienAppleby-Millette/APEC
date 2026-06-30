@@ -47,12 +47,31 @@ E0 = 22.0           # decay constant (Ry)
 E_cut = np.linspace(30, 120, 200)
 omega_vs_ecut = omega_conv + A_omega * np.exp(-E_cut / E0)
 
-# Mark specific points (simulating a convergence study)
+# Guide samples along the constrained interpolant. These are not independent
+# DFPT calculations; the production star is the only solid computed marker.
 E_points = np.array([35, 40, 50, 60, 70, 80, 90, 100])
 omega_points = omega_conv + A_omega * np.exp(-E_points / E0)
 
-ax1.plot(E_cut, omega_vs_ecut, 'b-', linewidth=1.5, alpha=0.5)
-ax1.plot(E_points, omega_points, 'bo', markersize=6, zorder=5)
+ax1.plot(
+    E_cut,
+    omega_vs_ecut,
+    color="#4C72B0",
+    linestyle="--",
+    linewidth=1.3,
+    alpha=0.45,
+    label="constrained guide",
+)
+ax1.plot(
+    E_points,
+    omega_points,
+    linestyle="None",
+    marker="o",
+    markerfacecolor="white",
+    markeredgecolor="#4C72B0",
+    markersize=5,
+    alpha=0.65,
+    zorder=5,
+)
 
 # Highlight actual calculation point
 ax1.plot(60, 172, 'r*', markersize=14, zorder=10, label='This work (60 Ry)')
@@ -87,8 +106,26 @@ n_cont = np.linspace(3.5, 13, 200)
 Nk_cont = n_cont**3
 omega_cont = omega_conv + B_omega / Nk_cont**alpha_k
 
-ax2.plot(n_cont, omega_cont, 'r-', linewidth=1.5, alpha=0.5)
-ax2.plot(n_vals, omega_vs_k, 'rs', markersize=6, zorder=5)
+ax2.plot(
+    n_cont,
+    omega_cont,
+    color="#C44E52",
+    linestyle="--",
+    linewidth=1.3,
+    alpha=0.45,
+    label="constrained guide",
+)
+ax2.plot(
+    n_vals,
+    omega_vs_k,
+    linestyle="None",
+    marker="s",
+    markerfacecolor="white",
+    markeredgecolor="#C44E52",
+    markersize=5,
+    alpha=0.65,
+    zorder=5,
+)
 
 # Highlight actual calculation point  
 ax2.plot(6, 172, 'r*', markersize=14, zorder=10, label='This work ($6^3$)')

@@ -47,9 +47,9 @@
         "mean_reduced_chi2": 0.35430273770163306
       }
     },
-    "experimental_validation": [
+    "anchored_consistency_check": [
       {
-        "prediction": "library_fused_bulk_r33_iso",
+        "prediction": "library_fused_bulk_r33_iso_anchored",
         "predicted_value": 108.0,
         "predicted_sigma": 22.0,
         "experimental_value": 105,
