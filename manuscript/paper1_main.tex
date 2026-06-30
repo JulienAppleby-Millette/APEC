@@ -255,19 +255,19 @@ and experimental
 references, along with experimental Pockels coefficient measurements from 
 bulk crystals and epitaxial thin 
 films \cite{Reynaud2025,Suceava2025,Ghosez1998_BEC,Zhong1994_BTO,Veithen2005,Kwei1993,Hewat1973}. In particular, the  $Z^*_{\mathrm{Ti}}$ and $\varepsilon^\infty$ entries illustrate the 
-importance of phase-aware partitioning: cubic-phase values differ significantly 
-from tetragonal-phase values for the same descriptor.
+importance of phase-aware partitioning: older cubic-reference or high-symmetry
+reference-structure values differ significantly from explicitly tetragonal
+values for the same descriptor.
 
 \begin{table*}
 \centering
-\caption{BaTiO$_3$ library summary. Best estimate values are weighted averages within each reported subset. 
-}
+\caption{BaTiO$_3$ library summary. Best estimate values are weighted averages within each reported subset. The cubic Born-charge row groups older cubic-reference or high-symmetry reference-structure entries, for which tensor directions are equivalent by symmetry; the tetragonal $zz$ row contains explicitly tetragonal $zz$ records.}
 \label{tab:literature_library}
 \begin{tabular}{llccl}
 \toprule
 Parameter & Phase & Sources & Functionals & Best estimate \\
 \midrule
-$Z^*_{\mathrm{Ti}}$ (isotropic) & Cubic & 4 DFT & LDA, PBE & $7.27 \pm 0.17$ \\
+$Z^*_{\mathrm{Ti}}$ (isotropic) & Cubic ref. & 4 DFT & LDA, PBE & $7.27 \pm 0.17$ \\
 $Z^*_{\mathrm{Ti},zz}$ & Tetragonal & 1 DFT & PBE & $6.20 \pm 0.20$ \\
 $\varepsilon^\infty$ (avg) & Tetragonal & 3 DFT & LDA, PBE & $6.77 \pm 0.14$ \\
 $\varepsilon^\infty_{zz}$ & Tetragonal & 1 DFT & PBE & $5.96 \pm 0.18$ \\
@@ -395,7 +395,7 @@ lines at 5\% and 15\% mark Green/Amber and Amber/Red tier boundaries, respective
 reported in both $zz$ and isotropic tensor conventions, using 
 literature-standard reference values ($Z^*_{\mathrm{ref}} = 7.16$~$e$, 
 $\varepsilon_{\mathrm{ref}} = 6.5$); see Section~\ref{sec:library_update} 
-for discussion of the convention dependence. (b) Example JSON representation of a posterior certificate, illustrating the structured metadata schema used to encode computed values, uncertainty decomposition, provenance information and quality-tier assignment. Further details are provided in Supplemental Material Section~S2.}
+for discussion of the convention dependence. (b) Example JSON representation of a posterior certificate, illustrating the core structured metadata schema used to encode computed values, uncertainty decomposition, provenance information and quality-tier assignment. Full records additionally carry \texttt{descriptor\_selection} and \texttt{model\_discrepancy} blocks when needed to audit derived or calibrated quantities; further details are provided in Supplemental Material Section~S2.}
 \label{fig:certificate_tiers}
 \end{figure*}
 
@@ -450,7 +450,7 @@ increase the library from 25 to 31 entries.
 
 Building on the phase-aware partitioning introduced in Table \ref{tab:literature_library}, Table~\ref{tab:library_update} quantifies its effect 
 on fused library averages and derived $r_{33}$. The unpartitioned library 
-conflates cubic-phase and tetragonal-phase values for 
+conflates cubic-reference and tetragonal-phase values for
 $Z^*_{\mathrm{Ti}}$ and mixes isotropic averages with $zz$~components for 
 $\varepsilon^\infty$. When the tetragonal-phase PBE values are added 
 without partitioning, the uncertainty in $\varepsilon^\infty$  \emph{widens} 
@@ -483,8 +483,8 @@ Experiment (bulk, 300~K) & --- & --- & --- & $105 \pm 15$ & 14\% \\
 
 The impact on the derived $r_{33}$ is substantial. The unpartitioned library 
 average ($r_{33} = 114 \pm 27$~pm/V) is inflated primarily because it draws 
-$Z^*_{\mathrm{Ti}}$ predominantly from cubic-phase DFPT 
-studies \cite{Ghosez1998_BEC,Zhong1994_BTO,Veithen2005} where  $Z^*_{zz} = 7.29$~$e$. In the tetragonal phase, the 
+$Z^*_{\mathrm{Ti}}$ predominantly from cubic-reference and high-symmetry
+reference-structure DFPT records \cite{Ghosez1998_BEC,Zhong1994_BTO,Veithen2005} where the equivalent tensor-component average is $Z^* = 7.29$~$e$. In the explicitly tetragonal phase, the
  corresponding component drops to 6.20~$e$ due to the ferroelectric distortion. 
 Since $r_{33} \propto Z^{*2}$, this difference alone increases the 
 fused electro-optic response by  $(7.29/6.85)^2 \approx 1.13$.
@@ -543,32 +543,7 @@ the central estimate from 94 to approximately 134~pm/V. This alternative is
 not adopted in the reported certificate, but it illustrates why mode
 provenance is retained explicitly.
 
-A limited leave-one-out calibration test of the phase/component-consistent subsets of the BaTiO$_3$ literature library is presented in Supplemental Material Section~S3.7. Across 15 residuals in four computational groups, the pooled residuals give mean $z=-0.02$, RMS $z=1.05$, reduced $\chi^2=1.10$, 73\% coverage for $|z|<1$, and 93\% coverage for $|z|<1.96$. The expected sampling spread of the RMS statistic is approximately $1/\sqrt{2n}=0.18$, so these values rule out gross miscalibration but do not distinguish fine calibration differences. This is an Amber-level smoke test for gross over- or under-confidence in the BaTiO$_3$ input library, not a broad calibration benchmark across materials or a direct empirical validation of the derived Red-tier $r_{33}$ certificate.
-
-
-
-
-
-%\subsection{Posterior Calibration Check}
-%\label{sec:calibration_check}
-
-%As an initial calibration test, we performed a leave-one-out posterior predictive check on the phase/component-consistent subsets of the BaTiO$_3$ literature library. For each subset with at least three computational entries ($\omega_{\mathrm{soft}}$, $Z^*_{\mathrm{Ti},zz}$, $P_s$, and lattice parameter $a$), one entry was held out, the remaining entries were fused by inverse-variance weighting, and the held-out residual was standardized as
-%\begin{equation}
-%    z_i =
-%    \frac{P_i - \hat{P}_{-i}}
-%    {\sqrt{\sigma_i^2 + \sigma_{-i}^2}} .
-%    \label{eq:loo_calibration}
-%\end{equation}
-%If the reported uncertainties are calibrated and the entries are approximately exchangeable within each subset, these residuals should follow a standard normal distribution. Across 15 leave-one-out residuals, the mean $z$ score is $-0.02$, the root-mean-square $z$ score is 1.05, and the pooled reduced $\chi^2$ is 1.10. The empirical coverage is 73\% for $|z| < 1$ (68\% expected) and 93\% for $|z| < 1.96$ (95\% expected). The room-temperature bulk experimental comparison for the fused isotropic $r_{33}$ gives $z = 0.11$ relative to the Zgonik et al.\ \cite{Zgonik1994} reference value. These statistics are not a substitute for a large benchmark campaign, but they show that the present certificate library is not grossly over- or under-confident at the scale probed by the available data.
-
-%\begin{figure*}
-%    \centering
-%    \includegraphics[width=\textwidth]{fig3_calibration_check.pdf}
-%    \caption{Leave-one-out calibration check for the BaTiO$_3$ certificate    library. The left panel shows standardized residuals for held-out    literature entries relative to inverse-variance fusion of the remaining    entries in the same phase/component subset. The right panel compares the    empirical coverage of $|z|$ with the standard-normal expectation.}
-%    \label{fig:calibration_check}
-%\end{figure*}
-
-%\subsection{Propagation to Device Metrics}
+A limited leave-one-out calibration test of the phase/component-consistent subsets of the BaTiO$_3$ literature library is presented in Supplemental Material Section~S3.7. Across 19 residuals in five computational groups, the pooled residuals give mean $z=-0.03$, RMS $z=0.99$, reduced $\chi^2=0.99$, 68\% coverage for $|z|<1$, and 95\% coverage for $|z|<1.96$. The expected sampling spread of the RMS statistic is approximately $1/\sqrt{2n}=0.16$, so these values rule out gross miscalibration but do not distinguish fine calibration differences. This is an Amber-level smoke test for gross over- or under-confidence in the BaTiO$_3$ input library, not a broad calibration benchmark across materials or a direct empirical validation of the derived Red-tier $r_{33}$ certificate.
 
 
 

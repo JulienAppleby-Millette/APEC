@@ -17,10 +17,10 @@ The case study attaches decomposed uncertainty estimates to DFT-computed BaTiO3 
 
 - 12 posterior certificates extracted from a production PBE/PAW DFPT calculation using Quantum ESPRESSO 7.5.
 - 1 typed band-gap certificate case study showing why Kohn-Sham, proxy, and optical gaps must be kept non-exchangeable unless calibrated reduction maps are supplied.
-- Phase-aware partitioning resolves cubic/tetragonal conflation in prior Born effective charge data.
+- Phase-aware partitioning resolves cubic-reference/tetragonal conflation in prior Born effective charge data.
 - Library-fused isotropic r33 = 108 +/- 25 pm/V for tetragonal bulk BaTiO3; agreement with the bulk reference scale is treated as a calibrated internal consistency check, not an independent validation of the absolute electro-optic response.
 - Library fusion reduces relative uncertainty from 28% for the single-calculation certificate to approximately 24% for the fused estimate, bounded by a model-form-dominated floor of about 22%.
-- Leave-one-out calibration gives RMS z = 1.05 across 15 exchangeable library residuals.
+- Leave-one-out calibration gives RMS z = 0.99 across 19 exchangeable library residuals.
 - The SCF convergence campaign confirms cutoff-dominated total-energy convergence for the 40-atom BaTiO3 supercell.
 
 ## Repository Structure

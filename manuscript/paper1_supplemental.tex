@@ -699,23 +699,24 @@ Amber-level meta-certificate on the present library's calibration status.}\\[0.5
 \toprule
 Statistic & Observed & Reference \\
 \midrule
-Leave-one-out residuals & 15 & --- \\
-Phase/component groups & 4 & --- \\
-Mean $z$ & $-0.02$ & 0 \\
-RMS $z$ & 1.05 & 1 \\
-Pooled reduced $\chi^2$ & 1.10 & 1 \\
-Coverage, $|z|<1$ & 73\% & 68\% \\
-Coverage, $|z|<1.96$ & 93\% & 95\% \\
+Leave-one-out residuals & 19 & --- \\
+Phase/component groups & 5 & --- \\
+Mean $z$ & $-0.03$ & 0 \\
+RMS $z$ & 0.99 & 1 \\
+Pooled reduced $\chi^2$ & 0.99 & 1 \\
+Coverage, $|z|<1$ & 68\% & 68\% \\
+Coverage, $|z|<1.96$ & 95\% & 95\% \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The four tested groups are $P_s$ in the tetragonal scalar/isotropic subset,
-$Z^*_{\mathrm{Ti},zz}$ in the tetragonal subset, tetragonal lattice parameter
-$a$, and tetragonal soft-mode frequency. The pooled statistics are close to
-the standard-normal expectation, with RMS $z=1.05$ and reduced
-$\chi^2=1.10$. For $n=15$ residuals, the sampling spread of the RMS statistic
-is approximately $1/\sqrt{2n}=0.18$, so the observed RMS is statistically
+The five tested groups are $P_s$ in the tetragonal scalar/isotropic subset,
+$Z^*_{\mathrm{Ti}}$ in the cubic-reference isotropic subset,
+$\varepsilon^\infty$ in the tetragonal scalar/isotropic subset, tetragonal
+lattice parameter $a$, and tetragonal soft-mode frequency. The pooled
+statistics are close to the standard-normal expectation, with RMS $z=0.99$
+and reduced $\chi^2=0.99$. For $n=19$ residuals, the sampling spread of the
+RMS statistic is approximately $1/\sqrt{2n}=0.16$, so the observed RMS is statistically
 indistinguishable from values near unity. The room-temperature bulk experimental comparison for the
 library-fused isotropic $r_{33}$ gives $z=0.11$ relative to the
 Zgonik et al.\ \cite{Zgonik1994} reference value, using the combined library and experimental
@@ -745,8 +746,10 @@ phase-filtered analysis in the main text.
 \footnotesize
 \caption{Complete BaTiO$_3$ literature library and tensor-provenance rows.
 Phase: C = cubic, T = tetragonal. Component: zz, xx, iso (isotropic average),
-or --- (scalar). Uncertainties are one standard deviation. Derived rows are
-included for auditability and should not be counted as independent source
+or --- (scalar). The cubic Born-charge rows include older cubic-reference or
+high-symmetry reference-structure records; tensor directions are equivalent by
+symmetry in that bin. Uncertainties are one standard deviation. Derived rows
+are included for auditability and should not be counted as independent source
 entries in inverse-variance fusion.}
 \label{tab:si_full_library}
 \begin{tabular}{llcccll}
@@ -755,9 +758,9 @@ Parameter & Ph. & Comp. & Value & $\sigma$ & Functional & Source \\
 \midrule
 \multicolumn{7}{l}{\textit{Born effective charge $Z^*_{\mathrm{Ti}}$ ($e$)}} \\
 $Z^*_{\mathrm{Ti}}$ & C & iso & 7.16 & 0.40 & LDA & Ghosez 1998 \\
-$Z^*_{\mathrm{Ti}}$ & T & zz & 7.25 & 0.30 & LDA & Zhong 1994 \\
-$Z^*_{\mathrm{Ti}}$ & T & zz & 7.00 & 0.40 & LDA & Ghosez 1998 \\
-$Z^*_{\mathrm{Ti}}$ & T & zz & 7.50 & 0.30 & PBE & Veithen 2005 \\
+$Z^*_{\mathrm{Ti}}$ & C & iso & 7.25 & 0.30 & LDA & Zhong 1994 \\
+$Z^*_{\mathrm{Ti}}$ & C & iso & 7.00 & 0.40 & LDA & Ghosez 1998 \\
+$Z^*_{\mathrm{Ti}}$ & C & iso & 7.50 & 0.30 & PBE & Veithen 2005 \\
 $Z^*_{\mathrm{Ti}}$ & T & xx & 5.70 & 0.20 & LDA & Zhong 1994 \\
 $Z^*_{\mathrm{Ti}}$ & T & xx & 7.17 & 0.20 & PBE & This work \\
 $Z^*_{\mathrm{Ti}}$ & T & zz & 6.20 & 0.20 & PBE & This work \\
@@ -765,7 +768,7 @@ $Z^*_{\mathrm{Ti}}$ & T & iso & 6.85 & 0.20 & PBE & This work (derived) \\
 \midrule
 \multicolumn{7}{l}{\textit{Dielectric constant $\varepsilon^\infty$}} \\
 $\varepsilon^\infty$ & C & iso & 6.90 & 0.30 & LDA & Ghosez 1998 \\
-$\varepsilon^\infty$ & T & zz & 6.75 & 0.20 & LDA & Veithen 2005 \\
+$\varepsilon^\infty$ & T & --- & 6.75 & 0.20 & LDA & Veithen 2005 \\
 $\varepsilon^\infty$ & T & --- & 6.50 & 0.30 & LDA & Ghosez 1998 \\
 $\varepsilon^\infty$ & T & --- & 7.00 & 0.25 & PBE & Tinte \cite{Tinte2003} \\
 $\varepsilon^\infty$ & T & zz & 5.96 & 0.18 & PBE & This work \\

@@ -71,30 +71,6 @@
     "Z_star_Ti": {
       "tetragonal": [
         {
-          "value": 7.25,
-          "sigma": 0.3,
-          "functional": "LDA",
-          "source": "Zhong PRL 1994",
-          "doi": "10.1103/PhysRevLett.73.1861",
-          "component": "zz"
-        },
-        {
-          "value": 7.0,
-          "sigma": 0.4,
-          "functional": "LDA",
-          "source": "Ghosez PRB 1998",
-          "doi": "10.1103/PhysRevB.58.6224",
-          "component": "zz"
-        },
-        {
-          "value": 7.5,
-          "sigma": 0.3,
-          "functional": "PBE",
-          "source": "Veithen PRB 2005",
-          "doi": "10.1103/PhysRevB.72.024102",
-          "component": "zz"
-        },
-        {
           "value": 5.7,
           "sigma": 0.2,
           "functional": "LDA",
@@ -149,7 +125,36 @@
           "sigma": 0.4,
           "functional": "LDA",
           "source": "Ghosez PRB 1998",
-          "doi": "10.1103/PhysRevB.58.6224"
+          "doi": "10.1103/PhysRevB.58.6224",
+          "component": "iso",
+          "notes": "Cubic/high-symmetry reference-structure Born charge; tensor components are equivalent by symmetry."
+        },
+        {
+          "value": 7.25,
+          "sigma": 0.3,
+          "functional": "LDA",
+          "source": "Zhong PRL 1994",
+          "doi": "10.1103/PhysRevLett.73.1861",
+          "component": "iso",
+          "notes": "Binned as a cubic/high-symmetry reference-structure Born charge for phase-aware fusion."
+        },
+        {
+          "value": 7.0,
+          "sigma": 0.4,
+          "functional": "LDA",
+          "source": "Ghosez PRB 1998",
+          "doi": "10.1103/PhysRevB.58.6224",
+          "component": "iso",
+          "notes": "Binned as a cubic/high-symmetry reference-structure Born charge for phase-aware fusion."
+        },
+        {
+          "value": 7.5,
+          "sigma": 0.3,
+          "functional": "PBE",
+          "source": "Veithen PRB 2005",
+          "doi": "10.1103/PhysRevB.71.125107",
+          "component": "iso",
+          "notes": "Binned with cubic/high-symmetry reference-structure Born-charge records in the unpartitioned-library audit."
         }
       ]
     },
@@ -191,8 +196,8 @@
           "sigma": 0.2,
           "functional": "LDA",
           "source": "Veithen PRB 2005",
-          "doi": "10.1103/PhysRevB.72.024102",
-          "component": "zz"
+          "doi": "10.1103/PhysRevB.71.125107",
+          "notes": "Literature scalar/reference dielectric value used in the tetragonal average; not treated as the single-component zz certificate."
         },
         {
           "value": 6.5,
