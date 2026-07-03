@@ -38,6 +38,7 @@ scripts/
   calibration_check.py               # Figure 3: leave-one-out calibration
   analyze_kyla_scf_convergence.py    # Figure 4: SCF convergence campaign
   band_gap_certificate_case_study.py # Typed band-gap artifacts and supplemental figure
+  gen_graphical_abstract.py          # Graphical abstract asset generator
 
 figures/
   fig1_omega_convergence.pdf/png
@@ -45,6 +46,10 @@ figures/
   fig3_calibration_check.pdf/png
   fig4_scf_convergence.pdf/png
   figS_band_gap_certificate.pdf/png
+
+graphical_abstract/
+  paper1_graphical_abstract.pdf/png/svg
+  paper1_graphical_abstract_orbitals.pdf/png/svg
 
 outputs/
   calibration/                       # Leave-one-out calibration JSON/CSV
@@ -58,6 +63,8 @@ manuscript/
   paper1_main.tex                    # Current canonical manuscript source
   paper1_supplemental.tex            # Current canonical Supplemental Material
   references_merged.bib              # Bibliography used by main text and SI
+  Posterior_Certification_paper.pdf  # Final compiled main manuscript
+  Posterior_Certification_paper_SI.pdf # Final compiled Supplemental Material
 ```
 
 ## Quick Start
@@ -71,6 +78,7 @@ python scripts/gen_fig2_composite.py
 python scripts/calibration_check.py
 python scripts/analyze_kyla_scf_convergence.py
 python scripts/band_gap_certificate_case_study.py
+python scripts/gen_graphical_abstract.py
 ```
 
 The scripts are self-contained and do not require any external development package.
@@ -92,6 +100,8 @@ preview from the JSON data, run `python scripts/gen_fig2_composite.py
 `scripts/analyze_kyla_scf_convergence.py` regenerates the convergence summaries under `convergence_study/kyla_younger_scf_20260525/processed/` and `figures/fig4_scf_convergence.*`.
 
 `scripts/band_gap_certificate_case_study.py` regenerates the typed band-gap outputs under `outputs/band_gap_certificate/` and `figures/figS_band_gap_certificate.*`.
+
+`scripts/gen_graphical_abstract.py` regenerates the graphical abstract exports under `graphical_abstract/`. The no-orbital version is the canonical graphical abstract; the orbital variant is retained only as an alternate visual asset.
 
 ## Notes on Exchangeability
 
